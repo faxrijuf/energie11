@@ -15,7 +15,8 @@ export const en = {
       highlight: 'web experiences',
       part2: 'that define brand identity'
     },
-    subtitle: 'A premium web design studio based in Baku, Azerbaijan. We create minimal, high-conversion websites that bring brands to life in the digital space.',
+    subtitle:
+      'Énergie Studio is a modern web design studio founded in 2025 in Baku, Azerbaijan. We create clean, high-quality websites for brands that want a strong digital presence.',
     ctaPrimary: 'Contact us',
     ctaSecondary: 'View our work',
     mockupAlt: 'Premium web design showcase',
@@ -36,19 +37,23 @@ export const en = {
     subtitle: 'Full-cycle solutions from strategy to execution',
     webDesign: {
       title: 'Web Design',
-      description: 'We create minimal, high-quality interfaces that marry user experience with visual beauty.'
+      description:
+        'We create minimal, high-quality interfaces that combine usability with strong visual identity.'
     },
     development: {
       title: 'Development',
-      description: 'Building fast, performant websites optimized for scale using modern technologies and best practices.'
+      description:
+        'Building fast, performant websites optimized for scale using modern technologies and best practices.'
     },
     branding: {
       title: 'Brand Identity',
-      description: 'Developing comprehensive visual language and strategy for your brand across digital and physical spaces.'
+      description:
+        'Developing a consistent visual language and strategy for your brand across digital and physical spaces.'
     },
     strategy: {
       title: 'Digital Strategy',
-      description: 'Data-driven strategies to achieve your business goals and connect meaningfully with your audiences.'
+      description:
+        'Data-driven strategies to achieve your business goals and connect meaningfully with your audiences.'
     }
   },
   philosophy: {
@@ -57,19 +62,23 @@ export const en = {
     principles: [
       {
         title: 'Minimalism',
-        description: 'Every element serves a purpose. We remove the unnecessary and amplify the essential, creating clean, functional experiences.'
+        description:
+          'Every element serves a purpose. We remove the unnecessary and amplify the essential, creating clean, functional experiences.'
       },
       {
         title: 'Detail',
-        description: 'Perfection is in the details. Every pixel, every animation, every interaction is carefully considered and refined.'
+        description:
+          'Perfection is in the details. Every pixel, every animation, every interaction is carefully considered and refined.'
       },
       {
         title: 'Functionality',
-        description: 'Beautiful design must work. We balance aesthetics with performance, prioritizing user experience above all.'
+        description:
+          'Beautiful design must work. We balance aesthetics with performance, prioritizing user experience above all.'
       },
       {
         title: 'Innovation',
-        description: 'We continuously push the boundaries of digital design, exploring new technologies and creative solutions.'
+        description:
+          'We continuously push the boundaries of digital design, exploring new technologies and creative solutions.'
       }
     ]
   },
@@ -79,27 +88,33 @@ export const en = {
     steps: [
       {
         title: 'Discovery',
-        description: 'We immerse ourselves in your business, goals, and audience. Research and strategy form the foundation of every project.'
+        description:
+          'We immerse ourselves in your business, goals, and audience. Research and strategy form the foundation of every project.'
       },
       {
         title: 'Strategy',
-        description: 'Defining a clear roadmap to achieve project objectives. We plan technical architecture and design approach.'
+        description:
+          'Defining a clear roadmap to achieve project objectives. We plan technical architecture and design approach.'
       },
       {
         title: 'Design',
-        description: 'Translating strategy into visual concepts. We create wireframes, prototypes, and beautiful user interfaces.'
+        description:
+          'Translating strategy into visual concepts. We create wireframes, prototypes, and beautiful user interfaces.'
       },
       {
         title: 'Development',
-        description: 'Bringing designs to life with clean, efficient code. We optimize for performance and scalability.'
+        description:
+          'Bringing designs to life with clean, efficient code. We optimize for performance and scalability.'
       },
       {
         title: 'Testing',
-        description: 'Rigorous testing across devices and browsers to ensure flawless experience for every user.'
+        description:
+          'Rigorous testing across devices and browsers to ensure flawless experience for every user.'
       },
       {
         title: 'Launch',
-        description: 'Deploying your project to the world. We handle launch logistics and provide ongoing support and optimization.'
+        description:
+          'Deploying your project to the world. We handle launch logistics and provide ongoing support and optimization.'
       }
     ]
   },
@@ -109,42 +124,44 @@ export const en = {
   },
   studio: {
     title: 'About the studio',
-    subtitle: 'Created in Baku, designed for the world',
-    description: 'Énergie studio was founded in 2020 in Azerbaijan with a mission to deliver maximum impact through minimal aesthetics. Our team consists of experienced designers and developers who are passionate about digital craft. We work with local and international clients, creating high-quality digital experiences that bring their visions to life.',
+    subtitle: 'Founded in Baku, built with a global perspective',
+    description:
+      'Énergie Studio was founded in 2025 in Baku, Azerbaijan with a mission to create modern, high-quality web designs. Our international team brings together different perspectives, design cultures, and technical expertise to build websites that look refined and perform reliably. We collaborate with clients in Azerbaijan and abroad, creating digital experiences that feel contemporary, clear, and aligned with each brand.',
     stats: [
-      { value: '50+', label: 'Completed projects' },
-      { value: '30+', label: 'Happy clients' },
-      { value: '4', label: 'Years of experience' },
-      { value: '98%', label: 'Client satisfaction' }
+      { value: '2025', label: 'Studio founded' },
+      { value: 'International', label: 'Team background' },
+      { value: 'Baku', label: 'Studio origin' },
+      { value: 'Global', label: 'Client focus' }
     ]
   },
   testimonials: {
-    title: 'Client testimonials',
-    subtitle: 'What brands say about working with us',
+    title: 'Why teams enjoy working with us',
+    subtitle: 'What we focus on in every collaboration',
     items: [
       {
-        text: 'Working with Énergie studio was an exceptional experience. They transformed our website into a beautiful, modern platform. The attention to detail and level of professionalism is remarkable.',
-        author: 'Leyla Mammadova',
-        role: 'CEO',
-        company: 'TechStart Azerbaijan'
+        text: 'Clear communication from the first call to launch so you always know what is happening and why.',
+        author: '',
+        role: '',
+        company: ''
       },
       {
-        text: 'The team\'s creative approach and technical expertise completely transformed our brand identity. The results exceeded our expectations in every way.',
-        author: 'Rashad Aliyev',
-        role: 'Marketing Director',
-        company: 'Premium Homes'
+        text: 'Modern, minimal interfaces that feel on brand and are easy for your audience to use.',
+        author: '',
+        role: '',
+        company: ''
       },
       {
-        text: 'Professionalism, speed, and quality. Énergie studio is the best partner for our digital projects. We can recommend them to any brand.',
-        author: 'Nigar Hasanova',
-        role: 'Founder',
-        company: 'Baku Design Week'
+        text: 'Attention to detail in both design and performance so your site looks sharp and works smoothly.',
+        author: '',
+        role: '',
+        company: ''
       }
     ]
   },
   contact: {
-    title: 'Let\'s create together',
-    subtitle: 'Ready to bring your project to life? Let\'s start a conversation',
+    title: "Let's create together",
+    subtitle:
+      "Ready to bring your project to life? Tell us about your idea and we'll get back to you.",
     form: {
       name: 'Name',
       namePlaceholder: 'Your name',
@@ -158,7 +175,8 @@ export const en = {
       messagePlaceholder: 'Tell us about your project...',
       submit: 'Send message',
       sending: 'Sending...',
-      success: 'Thank you! We\'ve received your message. We\'ll get back to you soon.',
+      success:
+        "Thank you. We've received your message and will get back to you soon.",
       errorRequired: 'This field is required',
       errorEmail: 'Please enter a valid email'
     },
