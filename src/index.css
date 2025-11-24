@@ -3,10 +3,10 @@
 @import 'tailwindcss/utilities';
 
 @font-face {
-  font-family: "GazpachoItalicBlack";
-  src: url("./assets/GazpachoItalicBlack.woff2") format("woff2");
-  font-weight: 900;
-  font-style: italic;
+  font-family: "EurostileLTpro";
+  src: url("./assets/EurostileLTpro.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -89,6 +89,6 @@
 }
 @layer utilities {
   .font-hero {
-    font-family: "GazpachoItalicBlack", system-ui, sans-serif;
+    font-family: "EurostileLTpro", system-ui, sans-serif;
   }
 }
