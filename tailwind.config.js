@@ -8,7 +8,7 @@ export default {
         'sand': '#f6f1eb',
       },
       fontFamily: {
-        hero: ['"GazpachoItalicBlack"', 'system-ui', 'sans-serif'],
+        hero: ['"EurostileLTpro"', 'system-ui', 'sans-serif'],
       },
     },
   },
