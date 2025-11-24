@@ -25,10 +25,10 @@ export const en = {
     }
   },
   work: {
-    title: 'Selected work',
-    subtitle: 'Every project is a carefully crafted, unique digital experience',
-    viewProject: 'View project',
-    allProjects: 'All projects',
+    title: 'Design elements & components',
+    subtitle: 'Building blocks of exceptional digital experiences',
+    viewProject: 'View element',
+    allProjects: 'All elements',
     filterAll: 'All'
   },
   capabilities: {
