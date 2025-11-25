@@ -1,25 +1,24 @@
 // src/components/sections/Work.tsx
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../ui/SectionHeader';
 import { Card } from '../ui/Card';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { projects } from '../../data/projects';
 import { sectionVariant, cardVariant } from '../../utils/motionConfig';
-import { glassPanel } from '../../utils/glassStyles';
 import { useSectionInView } from '../../hooks/useSectionInView';
 
 type Project = (typeof projects)[number];
 
-const ProjectCard: React.FC<{ project: Project; className?: string }> = ({
+const ProjectCardDesktop: React.FC<{ project: Project; className?: string }> = ({
   project,
   className = ''
 }) => {
   return (
     <motion.div variants={cardVariant} className={className}>
       <Card className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/55 bg-white/55 backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.14)]">
-        {/* image block */}
+        {/* image */}
         <div className="relative aspect-[4/3] w-full overflow-hidden">
           <img
             src={project.image}
@@ -39,7 +38,7 @@ const ProjectCard: React.FC<{ project: Project; className?: string }> = ({
 
         {/* content */}
         <div className="flex flex-1 flex-col gap-3 px-4 pb-4 pt-3 md:px-5 md:pb-5 md:pt-4">
-          <p className="text-sm md:text-sm leading-relaxed text-neutral-700">
+          <p className="text-xs md:text-sm leading-relaxed text-neutral-700">
             {project.description}
           </p>
 
@@ -59,17 +58,43 @@ const ProjectCard: React.FC<{ project: Project; className?: string }> = ({
   );
 };
 
+const ProjectCardMobile: React.FC<{ project: Project }> = ({ project }) => {
+  return (
+    <div className="snap-center shrink-0 w-[86vw] max-w-sm">
+      <div className="overflow-hidden rounded-3xl bg-white/6 backdrop-blur-xl border border-white/35 shadow-[0_18px_45px_rgba(0,0,0,0.45)]">
+        <div className="relative aspect-[4/3] w-full overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="h-full w-full object-cover"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
+          <div className="pointer-events-none absolute left-4 right-4 bottom-4 flex flex-col gap-1">
+            <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-100/90">
+              {project.category}
+            </span>
+            <h3 className="text-base font-semibold text-white">
+              {project.title}
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <h4 className="text-sm font-semibold text-neutral-900">
+          {project.title}
+        </h4>
+        <p className="mt-1 text-[13px] leading-relaxed text-neutral-700">
+          {project.description}
+        </p>
+      </div>
+    </div>
+  );
+};
+
 export const Work: React.FC = () => {
   const { t } = useLanguage();
-  const [filter, setFilter] = useState('All');
   const { ref } = useSectionInView('work');
-
-  const allTags = ['All', ...Array.from(new Set(projects.flatMap(p => p.tags)))];
-
-  const filteredProjects =
-    filter === 'All'
-      ? projects
-      : projects.filter(p => p.tags.includes(filter));
 
   return (
     <motion.section
@@ -87,59 +112,19 @@ export const Work: React.FC = () => {
           description={t('work.subtitle')}
         />
 
-        {/* filter bar */}
-        <div className="mt-6 md:mt-8">
-          <div
-            className={`${glassPanel} flex flex-col gap-3 rounded-2xl border border-white/60 bg-white/60 px-4 py-3 backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.12)]`}
-          >
-            <div className="flex items-center justify-between gap-4">
-              <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-500">
-                {t('work.allProjects')}
-              </span>
-              <span className="text-[11px] text-neutral-600">
-                {filteredProjects.length} / {projects.length}
-              </span>
-            </div>
-
-            {/* chips – horizontal scroll on mobile */}
-            <div className="flex gap-2 overflow-x-auto pb-1 pt-1">
-              {allTags.map(tag => (
-                <button
-                  key={tag}
-                  type="button"
-                  onClick={() => setFilter(tag)}
-                  className={[
-                    'flex-shrink-0 rounded-full border px-3.5 py-1.5 text-[11px] font-medium tracking-[0.12em] uppercase transition-all',
-                    filter === tag
-                      ? 'border-[#E65A4F] bg-[#E65A4F] text-white shadow-[0_0_18px_rgba(230,90,79,0.6)]'
-                      : 'border-white/60 bg-white/35 text-neutral-700 hover:bg-white/60'
-                  ].join(' ')}
-                >
-                  {tag === 'All' ? t('work.filterAll') : tag}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* content */}
         <div className="mt-8 md:mt-10">
-          {/* Apple style mobile carousel */}
-          <div className="md:hidden -mx-5 px-5">
-            <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
-              {filteredProjects.map(project => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  className="snap-center shrink-0 w-[86%]"
-                />
+          {/* Apple style mobile carousel, no filters */}
+          <div className="md:hidden -mx-5 pl-5">
+            <div className="flex gap-5 overflow-x-auto pb-6 snap-x snap-mandatory scroll-smooth">
+              {projects.map(project => (
+                <ProjectCardMobile key={project.id} project={project} />
               ))}
             </div>
           </div>
 
-          {/* desktop / tablet grid */}
+          {/* desktop and tablet grid, no filters */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5">
-            {filteredProjects.map((project, index) => {
+            {projects.map((project, index) => {
               const spanClasses =
                 index === 0
                   ? 'md:col-span-2 lg:col-span-2 lg:row-span-2'
@@ -148,7 +133,7 @@ export const Work: React.FC = () => {
                   : '';
 
               return (
-                <ProjectCard
+                <ProjectCardDesktop
                   key={project.id}
                   project={project}
                   className={spanClasses}
