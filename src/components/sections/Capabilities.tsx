@@ -9,7 +9,7 @@ import React, {
 import { SectionHeader } from '../ui/SectionHeader';
 import { Card } from '../ui/Card';
 import { useLanguage } from '../../i18n/LanguageContext';
-import { useScroll } from 'framer-motion';
+import { useReducedMotion, useScroll } from 'framer-motion';
 import { SectionContainer } from '../layout/SectionContainer';
 
 const techItems = [
@@ -224,8 +224,13 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
   const [isSpinning, setIsSpinning] = useState(false);
   const [isJackpot, setIsJackpot] = useState(false);
   const [showWave, setShowWave] = useState(false);
+  const [useTransition, setUseTransition] = useState(false);
+  const [slotHeight, setSlotHeight] = useState(SLOT_HEIGHT);
 
   const stopTimeoutRef = useRef<number | null>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const slotWindowHeight = slotHeight + 8;
+  const spinDuration = prefersReducedMotion ? 300 : SPIN_DURATION;
 
   const reelSymbols = useMemo(
     () => Array(REEL_REPEAT).fill(items).flat(),
@@ -234,10 +239,20 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
   const maxIndex = reelSymbols.length - 1;
 
   useEffect(() => {
+    const mobileMedia = window.matchMedia('(max-width: 480px)');
+    const updateSlotHeight = () => {
+      setSlotHeight(mobileMedia.matches ? 38 : SLOT_HEIGHT);
+    };
+
+    updateSlotHeight();
+    mobileMedia.addEventListener('change', updateSlotHeight);
+
     return () => {
       if (stopTimeoutRef.current) {
         window.clearTimeout(stopTimeoutRef.current);
       }
+
+      mobileMedia.removeEventListener('change', updateSlotHeight);
     };
   }, []);
 
@@ -247,6 +262,10 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
     setIsSpinning(true);
     setIsJackpot(false);
     setShowWave(false);
+
+    const normalizedStart = reelIndex.map(idx => idx % items.length);
+    setUseTransition(!prefersReducedMotion);
+    setReelIndex(normalizedStart);
 
     const forceJackpot = Math.random() < 0.2;
 
@@ -266,31 +285,36 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
       return target > maxIndex ? maxIndex : target;
     });
 
-    setReelIndex(targets);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setUseTransition(true);
+        setReelIndex(targets);
 
-    stopTimeoutRef.current = window.setTimeout(() => {
-      setIsSpinning(false);
+        stopTimeoutRef.current = window.setTimeout(() => {
+          setIsSpinning(false);
 
-      const finalLabels = targets.map(idx => {
-        const labelIndex = idx % items.length;
-        return items[labelIndex];
+          const finalLabels = targets.map(idx => {
+            const labelIndex = idx % items.length;
+            return items[labelIndex];
+          });
+
+          const jackpot =
+            finalLabels[0] === finalLabels[1] &&
+            finalLabels[1] === finalLabels[2];
+
+          setIsJackpot(jackpot);
+
+          if (jackpot) {
+            setShowWave(true);
+            window.setTimeout(() => setShowWave(false), 1300);
+          }
+        }, spinDuration);
       });
-
-      const jackpot =
-        finalLabels[0] === finalLabels[1] &&
-        finalLabels[1] === finalLabels[2];
-
-      setIsJackpot(jackpot);
-
-      if (jackpot) {
-        setShowWave(true);
-        window.setTimeout(() => setShowWave(false), 1300);
-      }
-    }, SPIN_DURATION);
+    });
   };
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-white/70 bg-gradient-to-br from-white via-white/80 to-neutral-50/70 p-5 md:p-6 backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
+    <div className="relative overflow-hidden rounded-3xl border border-white/70 bg-gradient-to-br from-white via-white/80 to-neutral-50/70 p-5 md:p-6 backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.08)] max-w-xl sm:max-w-3xl mx-auto">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(230,90,79,0.16),transparent_32%),radial-gradient(circle_at_80%_0%,rgba(59,11,7,0.08),transparent_36%)]"
         aria-hidden
@@ -306,41 +330,40 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
       )}
 
       <div className="relative z-10 space-y-4">
-        <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-600">
             <span className="h-2 w-2 rounded-full bg-[#E65A4F] animate-pulse" />
-            <span>Slot status</span>
+            <span>Stack slots</span>
           </div>
 
-          <div className="flex items-center gap-2 text-[11px] font-medium text-neutral-600">
-            <span className="rounded-full bg-neutral-900/5 px-3 py-1 uppercase tracking-[0.14em] text-neutral-700">
-              Ready to spin
+          {isJackpot && (
+            <span className="rounded-full bg-[#E65A4F]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#E65A4F]">
+              Triple match
             </span>
-            <span className="rounded-full bg-[#E65A4F]/10 px-3 py-1 uppercase tracking-[0.14em] text-[#E65A4F]">
-              Fair mix mode
-            </span>
-          </div>
+          )}
         </div>
 
         <div className="relative overflow-hidden rounded-2xl border border-white/70 bg-white/80 px-3 py-3 shadow-[0_12px_30px_rgba(15,23,42,0.07)]">
           <div className="pointer-events-none absolute inset-y-[18%] left-1 right-1 rounded-2xl border border-[#E65A4F]/25 bg-[#E65A4F]/6 shadow-[0_0_24px_rgba(230,90,79,0.16)]" />
 
           <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-3">
-            <div className="flex flex-1 gap-2">
+            <div className="flex flex-1 gap-2 sm:gap-3">
               {[0, 1, 2].map(reel => (
                 <div
                   key={reel}
-                  className="relative h-[52px] w-full overflow-hidden rounded-xl border border-neutral-200/70 bg-white/90"
-                  style={{ minWidth: 0 }}
+                  className="relative w-full overflow-hidden rounded-xl border border-neutral-200/70 bg-white/90"
+                  style={{ minWidth: 0, height: slotWindowHeight }}
                 >
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-neutral-100/40 via-transparent to-neutral-100/55" />
                   <div
                     className="absolute left-0 top-0 w-full"
                     style={{
-                      transform: `translateY(${-reelIndex[reel] * SLOT_HEIGHT}px)`,
-                      transition: isSpinning
-                        ? `transform ${SPIN_DURATION}ms cubic-bezier(0.22,0.61,0.36,1)`
-                        : 'transform 0ms'
+                      transform: `translateY(${-reelIndex[reel] * slotHeight}px)`,
+                      transition: useTransition
+                        ? `transform ${spinDuration}ms cubic-bezier(0.16,0.84,0.44,1)`
+                        : 'none',
+                      transitionDelay: useTransition ? `${reel * 80}ms` : '0ms',
+                      willChange: 'transform'
                     }}
                   >
                     {reelSymbols.map((label, idx) => {
@@ -350,8 +373,8 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
                       return (
                         <div
                           key={`${reel}-${idx}-${label}`}
-                          className="flex h-[44px] w-full items-center justify-center"
-                          style={{ height: SLOT_HEIGHT }}
+                          className="flex w-full items-center justify-center"
+                          style={{ height: slotHeight }}
                         >
                           <div
                             className={[
@@ -378,7 +401,7 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
               type="button"
               onClick={startSpin}
               disabled={isSpinning}
-              className="group relative flex h-12 w-full flex-shrink-0 items-center justify-center overflow-hidden rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#E65A4F]/60 focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-80 sm:w-24"
+              className="group relative flex h-12 w-full flex-shrink-0 items-center justify-center overflow-hidden rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#E65A4F]/60 focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-80 sm:w-24 touch-manipulation"
             >
               <span className="absolute inset-0 rounded-full bg-gradient-to-br from-[#E65A4F] to-[#b53a32] shadow-[0_10px_25px_rgba(230,90,79,0.4)] transition-transform duration-200 group-active:scale-95 group-hover:scale-[1.02]" />
               <span className="relative text-white">{isSpinning ? spinningLabel : spinLabel}</span>
@@ -386,15 +409,6 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-3 text-[11px] text-neutral-600">
-          <span className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-neutral-300" />
-            <span className="uppercase tracking-[0.12em]">Tech lineup</span>
-          </span>
-          <span className="text-[#E65A4F] font-semibold uppercase tracking-[0.14em]">
-            {isJackpot ? 'Triple match unlocked' : 'Spin to explore new stacks'}
-          </span>
-        </div>
       </div>
     </div>
   );
