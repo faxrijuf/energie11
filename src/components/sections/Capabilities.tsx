@@ -74,7 +74,11 @@ export const Capabilities: React.FC = () => {
           <h3 className="mb-3 text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-500">
             {t('technology.title')}
           </h3>
-          <TechSlots items={techItems} />
+          <TechSlots
+            items={techItems}
+            spinLabel={t('technology.controls.spin')}
+            spinningLabel={t('technology.controls.spinning')}
+          />
         </div>
 
         <div className="flex flex-col gap-10 md:flex-row md:items-center md:gap-16 md:pr-8 lg:pr-10">
@@ -170,29 +174,29 @@ export const Capabilities: React.FC = () => {
 
                 <Card className="bg-white/80 backdrop-blur-sm border border-white/60 p-4 md:p-5">
                   <h3 className="mb-2 text-[11px] md:text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-                    E-commerce shops
+                    {t('capabilities.ecommerce.title')}
                   </h3>
                   <p className="text-xs md:text-sm text-neutral-700 leading-relaxed">
-                    Conversion focused online shops with clear product structure simple checkout flow and flexible promo sections.
+                    {t('capabilities.ecommerce.description')}
                   </p>
                 </Card>
 
                 <Card className="bg-white/80 backdrop-blur-sm border border-white/60 p-4 md:p-5">
                   <h3 className="mb-2 text-[11px] md:text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-                    Product catalogues
+                    {t('capabilities.catalogues.title')}
                   </h3>
                   <p className="text-xs md:text-sm text-neutral-700 leading-relaxed">
-                    Visual catalogues and collections for brands that need to present many items with filters tags and rich product pages.
+                    {t('capabilities.catalogues.description')}
                   </p>
                 </Card>
 
                 {/* long horizontal booking card */}
                 <Card className="bg-white/80 backdrop-blur-sm border border-white/60 p-4 md:p-6 md:col-span-3">
                   <h3 className="mb-2 text-[11px] md:text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-                    Booking and service portals
+                    {t('capabilities.portals.title')}
                   </h3>
                   <p className="text-xs md:text-sm text-neutral-700 leading-relaxed">
-                    Interfaces for bookings subscriptions and service requests with user accounts notifications and integrations into your tools.
+                    {t('capabilities.portals.description')}
                   </p>
                 </Card>
               </div>
@@ -212,9 +216,11 @@ export const Capabilities: React.FC = () => {
  */
 type TechSlotsProps = {
   items: string[];
+  spinLabel: string;
+  spinningLabel: string;
 };
 
-const TechSlots: React.FC<TechSlotsProps> = ({ items }) => {
+const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }) => {
   const [reelIndex, setReelIndex] = useState<number[]>([0, 1, 2]);
   const [isSpinning, setIsSpinning] = useState(false);
   const [isJackpot, setIsJackpot] = useState(false);
@@ -348,7 +354,7 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items }) => {
           onClick={startSpin}
           className="flex h-10 w-20 flex-shrink-0 items-center justify-center rounded-full border border-white/85 bg.white/40 text-[11px] font-medium uppercase tracking-[0.16em] text-[#3b0b07] shadow-[0_0_18px_rgba(0,0,0,0.25)] transition-all duration-200 active:scale-95"
         >
-          {isSpinning ? 'Spinning' : 'Spin'}
+          {isSpinning ? spinningLabel : spinLabel}
         </button>
       </div>
     </div>

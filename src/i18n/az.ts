@@ -10,141 +10,180 @@ export const az = {
     cta: 'Layihəyə başla'
   },
   hero: {
+    tagline: 'Dəqiqliyə dəyər verən brendlər üçün butik veb studiya.',
     title: {
-      part1: 'Mükəmməl',
-      highlight: 'veb dizayn',
-      part2: 'vasitəsilə brend identikliyinizi yaradırıq'
+      part1: 'İnsanları cəlb edən',
+      highlight: 'rəqəmsal flaqmanlar yaradırıq',
+      part2: 'və şablonları kölgədə qoyuruq'
     },
-    subtitle: 'Biz Bakıda yerləşən premium veb dizayn studiyasıyıq. Minimal estetika və yüksək konversiya nisbətləri ilə brendləri rəqəmsal dünyada canlandırırıq.',
-    ctaPrimary: 'Əlaqə saxlayın',
-    ctaSecondary: 'İşlərimizə baxın',
+    subtitle:
+      'Énergie Studio performansyönümlü saytları ifadəli art-direksiya, aydın istifadəçi ssenariləri və etibarlı mühəndisliklə formalaşdırır.',
+    ctaPrimary: 'Layihə zəngini planlaşdırın',
+    ctaSecondary: 'Seçilmiş işlərimiz',
     mockupAlt: 'Premium veb dizayn nümunəsi',
     panel: {
       label: 'Premium Dizayn',
       badge: 'Mövcuddur'
-    }
+    },
+    cards: [
+      {
+        title: 'Layihədə təcrübəli komanda',
+        description: 'Dizayn direktorları və mühəndislər layihəni ilk gündən lansmana qədər şəxsən aparır.'
+      },
+      {
+        title: 'Sürətli və cilalı çatdırılma',
+        description: 'Performans, SEO və əlçatanlıq üçün tənzimlənmiş, responsiv təcrübələr.'
+      },
+      {
+        title: 'Qlobal baxış',
+        description: 'Bakıdan idarə olunur, müxtəlif saat qurşaqlarında olan komandalarla sürtünməsiz əməkdaşlıq.'
+      }
+    ],
+    massiveWords: [
+      'Aydentikaya söykənən art-direksiya',
+      'Konversiyaya yönəlmiş ssenarilər',
+      'Yalnız senior icra',
+      'Premium animasiya və cilalama'
+    ]
   },
   work: {
     title: 'Seçilmiş işlər',
-    subtitle: 'Hər layihə diqqətlə hazırlanmış, unikal rəqəmsal təcrübədir',
+    subtitle: 'Brend kimliyini inamlı rəqəmsal məhsullara çevirən təcrübələr',
     viewProject: 'Layihəyə baxın',
     allProjects: 'Bütün layihələr',
     filterAll: 'Hamısı'
   },
   capabilities: {
     title: 'Xidmətlərimiz',
-    subtitle: 'Strategiyadan icra edilməsinə qədər tam tsikl həllər',
+    subtitle: 'Strategiya, dizayn və inkişaf eyni senior komandanın əlində',
     webDesign: {
       title: 'Veb Dizayn',
-      description: 'İstifadəçi təcrübəsini və vizual gözəlliyi birləşdirən minimal, yüksək keyfiyyətli interfeyslər yaradırıq.'
+      description: 'İstifadə rahatlığını və güclü vizual kimliyi birləşdirən minimal, yüksək keyfiyyətli interfeyslər.'
     },
     development: {
       title: 'İnkişaf',
-      description: 'Müasir texnologiyalardan istifadə edərək performans və genişlənmə üçün optimallaşdırılmış, sürətli veb saytlar qururuq.'
+      description: 'Müasir texnologiyalarla qurulan, sürətli və miqyaslana bilən veb-saytlar.'
     },
     branding: {
-      title: 'Brend İdentikliyi',
-      description: 'Rəqəmsal və fiziki mühitlərdə brendinizin vizual dilini və strategiyasını inkişaf etdiririk.'
+      title: 'Brend identikliyi',
+      description: 'Rəqəmsal və fiziki mühitlərdə brendiniz üçün vahid vizual dil və strategiya qururuq.'
     },
     strategy: {
-      title: 'Rəqəmsal Strategiya',
-      description: 'Biznes məqsədlərinizə nail olmaq və auditoriyalarınızla əlaqə qurmaq üçün məlumat əsaslı strategiyalar hazırlayırıq.'
+      title: 'Rəqəmsal strategiya',
+      description: 'Biznes hədəflərinə çatmaq və auditoriya ilə mənalı əlaqə qurmaq üçün məlumat əsaslı strategiyalar.'
+    },
+    ecommerce: {
+      title: 'E-commerce həlləri',
+      description: 'Aydın məhsul quruluşu, sadə ödəniş axını və çevik kampaniyalarla konversiya yönümlü mağazalar.'
+    },
+    catalogues: {
+      title: 'Məhsul kataloqları',
+      description: 'Çox SKU-lu brendlər üçün vizual kolleksiyalar: filtrlər, teqlər və zəngin məhsul hekayələri.'
+    },
+    portals: {
+      title: 'Rezervasiya və xidmət portalları',
+      description: 'İstifadəçi hesabları, bildirişlər və inteqrasiyalarla rezervasiya, abunə və xidmət axınları.'
     }
   },
   philosophy: {
     title: 'Dizayn fəlsəfəmiz',
-    subtitle: 'Hər detalda mükəmməlliyə sadiqlik',
+    subtitle: 'Brend səsiniz ətrafında qurulan dəqiqlik, məqsədlilik və hərəkət',
     principles: [
       {
         title: 'Minimalizm',
-        description: 'Hər element məqsədyönlüdür. Lazımsız olanı aradan qaldırır, vacib olanı gücləndirir, təmiz və funksional təcrübələr yaradırıq.'
+        description: 'Hər element məqsəd daşıyır. Lazımsız olanı silir, əsas olanı gücləndirir, təmiz və funksional təcrübə qururuq.'
       },
       {
-        title: 'Detal',
-        description: 'Mükəmməllik detallardan ibarətdir. Hər piksel, hər animasiya və hər qarşılıqlı əlaqə diqqətlə nəzərdən keçirilir və mükəmməlləşdirilir.'
+        title: 'Detallar',
+        description: 'Mükəmməllik detallardadır. Hər piksel, animasiya və qarşılıqlı əlaqə diqqətlə işlənir və cilalanır.'
       },
       {
         title: 'Funksionallıq',
-        description: 'Gözəl dizayn işləməlidir. İstifadəçi təcrübəsini prioritet hesab edərək estetika və performansı balanslaşdırırıq.'
+        description: 'Gözəl dizayn işləməlidir. Estetika ilə performansı balanslaşdırır, istifadəçi təcrübəsini ön plana çıxarırıq.'
       },
       {
         title: 'İnnovasiya',
-        description: 'Rəqəmsal dizaynın sərhədlərini davamlı olaraq genişləndirir, yeni texnologiyalar və yaradıcı həllər araşdırırıq.'
+        description: 'Rəqəmsal dizayn sərhədlərini genişləndirir, yeni texnologiya və yaradıcı yanaşmaları sınaqdan keçiririk.'
       }
     ]
   },
   process: {
     title: 'Bizim prosesimiz',
-    subtitle: 'İdeya mərhələsindən işə salınmasına qədər sistemli yanaşma',
+    subtitle: 'Hər mərhələdə açıq addımlar və şəffaf ünsiyyət',
     steps: [
       {
         title: 'Kəşf',
-        description: 'Biznesinizi, məqsədlərinizi və auditoriyalarınızı dərindən öyrənirik. Araşdırma və strategiya layihənin təməlini qoyur.'
+        description: 'Biznesinizi, məqsədlərinizi və auditoriyanızı dərindən öyrənirik. Araşdırma və strategiya təməl yaradır.'
       },
       {
         title: 'Strategiya',
-        description: 'Layihə məqsədlərinə nail olmaq üçün aydın yol xəritəsi müəyyənləşdirir, texniki arxitektura və dizayn yanaşmasını planlaşdırırıq.'
+        description: 'Aydın yol xəritəsi qurur, texniki arxitektura və dizayn yanaşmasını planlaşdırırıq.'
       },
       {
         title: 'Dizayn',
-        description: 'Strategiyanı vizual konsepsiyalara çeviririk. Prototiplər, interfeyslər və gözəl istifadəçi təcrübələri yaradırıq.'
+        description: 'Strategiyanı vizual konsepsiyalara çeviririk. Prototiplər və gözəl interfeyslər hazırlayırıq.'
       },
       {
         title: 'İnkişaf',
-        description: 'Dizaynı təmiz, səmərəli kodla həyata keçirir, performans və genişlənmə üçün optimallaşdırırıq.'
+        description: 'Dizaynı səmərəli kodla həyata keçirir, performans və miqyaslanma üçün optimallaşdırırıq.'
       },
       {
         title: 'Test',
-        description: 'Bütün cihazlarda və brauzerlərda mükəmməl təcrübə təmin etmək üçün hərtərəfli test aparırıq.'
+        description: 'Bütün cihaz və brauzerlərdə qüsursuz təcrübə üçün əhatəli testlər aparırıq.'
       },
       {
         title: 'İşə salınma',
-        description: 'Layihəni işə salır, sıxlıqdan keçir və davamlı dəstək və optimallaşdırma təmin edirik.'
+        description: 'Layihəni yayımlayır, logistikanı idarə edir və post-launch dəstəyi təmin edirik.'
       }
     ]
   },
   technology: {
     title: 'Texnologiya yığınımız',
-    subtitle: 'Müasir veb inkişafı üçün yüksək keyfiyyətli alətlər'
+    subtitle: 'Performanslı məhsullar üçün müasir və etibarlı alətlər',
+    controls: {
+      spin: 'Fırlat',
+      spinning: 'Fırlanır...'
+    }
   },
   studio: {
     title: 'Studiya haqqında',
-    subtitle: 'Bakıda yaradılıb, dünya üçün dizayn edilir',
-    description: 'Énergie studio 2020-ci ildə Azərbaycanda yaradılıb və hədəf minimal estetika ilə maksimum təsir göstərməkdir. Komandamız rəqəmsal dizayn və inkişafa ehtirasla yanaşan təcrübəli mütəxəssislərdən ibarətdir. Biz yerli və beynəlxalq müştərilərlə işləyirik və onların viziyalarını həyata keçirən yüksək keyfiyyətli rəqəmsal təcrübələr yaradırıq.',
+    subtitle: 'Bakıda yaradılıb, qlobal baxışla işləyir',
+    description:
+      'Énergie Studio 2025-ci ildə Bakıda yaradılıb ki, müasir və keyfiyyətli veb təcrübələr hazırlasın. Beynəlxalq komanda müxtəlif dizayn məktəblərini və texniki bacarıqları birləşdirir ki, saytlar həm zərif görünsün, həm də fasiləsiz işləsin. Azərbaycan və xaricdəki müştərilərlə əməkdaşlıq edərək, brendi dəqiq əks etdirən müasir rəqəmsal məhsullar yaradırıq.',
     stats: [
-      { value: '50+', label: 'Tamamlanmış layihələr' },
-      { value: '30+', label: 'Xoşbəxt müştərilər' },
-      { value: '4', label: 'İl təcrübə' },
-      { value: '98%', label: 'Müştəri məmnuniyyəti' }
+      { value: '2025', label: 'Yaranma ili' },
+      { value: 'Beynəlxalq', label: 'Komanda' },
+      { value: 'Bakı', label: 'Studiya şəhəri' },
+      { value: 'Qlobal', label: 'Müştəri fokusu' }
     ]
   },
   testimonials: {
-    title: 'Müştəri rəyləri',
-    subtitle: 'Bizimlə işləyən brendlərin fikirləri',
+    title: 'Niyə bizimlə işləmək rahatdır',
+    subtitle: 'İlk zəngdən lansmana qədər prosesi belə aparırıq',
     items: [
       {
-        text: 'Énergie studio ilə işləmək əla təcrübə idi. Onlar bizim veb saytımızı gözəl, müasir platforma çevirdilər. Detallara diqqət və peşəkarlıq səviyyəsi heyrətamizdir.',
+        text: 'Həftəlik aydın yeniliklər və səliqəli sənədləşmə. Nə və nə üçün göndərildiyini həmişə bilirdik.',
         author: 'Leyla Məmmədova',
         role: 'CEO',
         company: 'TechStart Azerbaijan'
       },
       {
-        text: 'Komandanın yaradıcı yanaşması və texniki bacarıqları bizim brend identikliyimizi tamamilə dəyişdirdi. Nəticə gözləntilərimizi üstələdi.',
+        text: 'Komanda brend səsimizi minimal interfeysdə tutdu; sayt sürətli yüklənir və hekayəni gözəl satır.',
         author: 'Rəşad Əliyev',
-        role: 'Marketing Director',
+        role: 'Marketinq direktoru',
         company: 'Premium Homes'
       },
       {
-        text: 'Professionallıq, sürət və keyfiyyət. Énergie studio rəqəmsal layihələrimiz üçün ən yaxşı tərəfdaşdır. İstənilən brendə məsləhət edə bilərik.',
+        text: 'Dizayn və performans detallarına diqqət. Sayt premium hiss etdirir və bazarlar üzrə stabil işləyir.',
         author: 'Nigar Həsənova',
-        role: 'Founder',
+        role: 'Təsisçi',
         company: 'Baku Design Week'
       }
     ]
   },
   contact: {
     title: 'Gəlin birlikdə yaradaq',
-    subtitle: 'Layihənizi həyata keçirməyə hazırsınız? Söhbətə başlayaq',
+    subtitle: 'Layihənizi həyata keçirməyə hazırsınız? Fikrinizi paylaşın, tez cavab verək.',
     form: {
       name: 'Ad',
       namePlaceholder: 'Sizin adınız',
@@ -158,14 +197,14 @@ export const az = {
       messagePlaceholder: 'Layihəniz haqqında bizə danışın...',
       submit: 'Mesaj göndər',
       sending: 'Göndərilir...',
-      success: 'Təşəkkürlər! Mesajınız alındı. Tezliklə sizinlə əlaqə saxlayacağıq.',
+      success: 'Təşəkkürlər! Mesajınız alındı, qısa zamanda əlaqə saxlayacağıq.',
       errorRequired: 'Bu sahə tələb olunur',
       errorEmail: 'Düzgün e-poçt ünvanı daxil edin'
     },
     info: {
       email: 'hello@energiestudio.az',
       location: 'Bakı, Azərbaycan',
-      availability: 'Yeni layihələr üçün mövcuduq'
+      availability: 'Yeni layihələr üçün açığıq'
     }
   },
   footer: {
