@@ -62,7 +62,7 @@ const ProjectCardDesktop: React.FC<{ project: Project; className?: string }> = (
 const ProjectCardMobile: React.FC<{ project: Project }> = ({ project }) => {
   return (
     <div className="snap-center shrink-0 w-[86vw] max-w-sm">
-      <div className="overflow-hidden rounded-3xl bg-white/75 backdrop-blur-xl border border-white/35 shadow-[0_18px_45px_rgba(0,0,0,0.35)]">
+      <div className="overflow-hidden rounded-3xl bg-white/6 backdrop-blur-xl border border-white/35 shadow-[0_18px_45px_rgba(0,0,0,0.45)]">
         <div className="relative aspect-[4/3] w-full overflow-hidden">
           <img
             src={project.image}
@@ -88,16 +88,6 @@ const ProjectCardMobile: React.FC<{ project: Project }> = ({ project }) => {
         <p className="mt-1 text-[13px] leading-relaxed text-neutral-700">
           {project.description}
         </p>
-        <div className="mt-2 flex flex-wrap gap-1.5">
-          {project.tags.map(tag => (
-            <span
-              key={tag}
-              className="rounded-full bg-neutral-900/5 px-2.5 py-1 text-[11px] font-medium tracking-wide text-neutral-700"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
       </div>
     </div>
   );
@@ -125,8 +115,8 @@ export const Work: React.FC = () => {
 
         <div className="mt-8 md:mt-10">
           {/* Apple style mobile carousel, no filters */}
-          <div className="md:hidden -mx-4 px-4">
-            <div className="flex gap-5 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth pr-1 scrollbar-none">
+          <div className="md:hidden -mx-5 pl-5">
+            <div className="flex gap-5 overflow-x-auto pb-6 snap-x snap-mandatory scroll-smooth">
               {projects.map(project => (
                 <ProjectCardMobile key={project.id} project={project} />
               ))}
