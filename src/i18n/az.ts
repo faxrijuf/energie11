@@ -11,13 +11,14 @@ export const az = {
   },
   hero: {
     title: {
-      part1: 'Mükəmməl',
-      highlight: 'veb dizayn',
-      part2: 'vasitəsilə brend identikliyinizi yaradırıq'
+      part1: 'Brendiniz üçün',
+      highlight: 'premium veb təcrübələr',
+      part2: 'hazırlayırıq'
     },
-    subtitle: 'Biz Bakıda yerləşən premium veb dizayn studiyasıyıq. Minimal estetika və yüksək konversiya nisbətləri ilə brendləri rəqəmsal dünyada canlandırırıq.',
-    ctaPrimary: 'Əlaqə saxlayın',
-    ctaSecondary: 'İşlərimizə baxın',
+    subtitle:
+      'Énergie Studio — Bakıda yerləşən butik komandadır. Onlayn premium görünmək istəyən brendlər üçün minimal, sürətli və performanslı saytlar qururuq.',
+    ctaPrimary: 'Layihə zəngi təyin edin',
+    ctaSecondary: 'Seçilmiş işlərimiz',
     mockupAlt: 'Premium veb dizayn nümunəsi',
     panel: {
       label: 'Premium Dizayn',
@@ -25,15 +26,15 @@ export const az = {
     }
   },
   work: {
-    title: 'Seçilmiş işlər',
-    subtitle: 'Hər layihə diqqətlə hazırlanmış, unikal rəqəmsal təcrübədir',
+    title: 'Əsas layihələr',
+    subtitle: 'İdentikliyi rəqəmsal aydınlığa çevirən fərdiləşdirilmiş təcrübələr',
     viewProject: 'Layihəyə baxın',
-    allProjects: 'Bütün layihələr',
+    allProjects: 'Bütün işlər',
     filterAll: 'Hamısı'
   },
   capabilities: {
     title: 'Xidmətlərimiz',
-    subtitle: 'Strategiyadan icra edilməsinə qədər tam tsikl həllər',
+    subtitle: 'Strategiya, dizayn və inkişafı birləşdirən senior komanda',
     webDesign: {
       title: 'Veb Dizayn',
       description: 'İstifadəçi təcrübəsini və vizual gözəlliyi birləşdirən minimal, yüksək keyfiyyətli interfeyslər yaradırıq.'
@@ -53,7 +54,7 @@ export const az = {
   },
   philosophy: {
     title: 'Dizayn fəlsəfəmiz',
-    subtitle: 'Hər detalda mükəmməlliyə sadiqlik',
+    subtitle: 'Brend səsiniz ətrafında qurulan dəqiqlik, niyyət və hərəkət',
     principles: [
       {
         title: 'Minimalizm',
@@ -75,7 +76,7 @@ export const az = {
   },
   process: {
     title: 'Bizim prosesimiz',
-    subtitle: 'İdeya mərhələsindən işə salınmasına qədər sistemli yanaşma',
+    subtitle: 'Hər mərhələdə aydın addımlar və fasiləsiz ünsiyyət',
     steps: [
       {
         title: 'Kəşf',
@@ -105,40 +106,41 @@ export const az = {
   },
   technology: {
     title: 'Texnologiya yığınımız',
-    subtitle: 'Müasir veb inkişafı üçün yüksək keyfiyyətli alətlər'
+    subtitle: 'Performans və miqyas üçün güvəndiyimiz müasir, etibarlı alətlər'
   },
   studio: {
     title: 'Studiya haqqında',
-    subtitle: 'Bakıda yaradılıb, dünya üçün dizayn edilir',
-    description: 'Énergie studio 2020-ci ildə Azərbaycanda yaradılıb və hədəf minimal estetika ilə maksimum təsir göstərməkdir. Komandamız rəqəmsal dizayn və inkişafa ehtirasla yanaşan təcrübəli mütəxəssislərdən ibarətdir. Biz yerli və beynəlxalq müştərilərlə işləyirik və onların viziyalarını həyata keçirən yüksək keyfiyyətli rəqəmsal təcrübələr yaradırıq.',
+    subtitle: 'Bakıda quruldu, qlobal baxışla yaradılır',
+    description:
+      'Énergie Studio 2025-ci ildə Bakıda yaradılıb ki, müasir və yüksək keyfiyyətli veb təcrübələr hazırlasın. Beynəlxalq komandamız fərqli baxışları, dizayn məktəblərini və texniki təcrübəni birləşdirərək həm zərif görünüş, həm də qüsursuz işləmə təmin edir. Azərbaycan və digər ölkələrdəki müştərilərlə işləyərək aktual və aydın rəqəmsal məhsullar təqdim edirik.',
     stats: [
-      { value: '50+', label: 'Tamamlanmış layihələr' },
-      { value: '30+', label: 'Xoşbəxt müştərilər' },
-      { value: '4', label: 'İl təcrübə' },
-      { value: '98%', label: 'Müştəri məmnuniyyəti' }
+      { value: '2025', label: 'Studiyanın əsası' },
+      { value: 'International', label: 'Komanda təcrübəsi' },
+      { value: 'Baku', label: 'Mənşə şəhəri' },
+      { value: 'Global', label: 'Müştəri fokusu' }
     ]
   },
   testimonials: {
-    title: 'Müştəri rəyləri',
-    subtitle: 'Bizimlə işləyən brendlərin fikirləri',
+    title: 'Niyə bizimlə işləmək rahatdır',
+    subtitle: 'İlk zəngdən işə salmaya qədər layihələri necə aparırıq',
     items: [
       {
-        text: 'Énergie studio ilə işləmək əla təcrübə idi. Onlar bizim veb saytımızı gözəl, müasir platforma çevirdilər. Detallara diqqət və peşəkarlıq səviyyəsi heyrətamizdir.',
-        author: 'Leyla Məmmədova',
-        role: 'CEO',
-        company: 'TechStart Azerbaijan'
+        text: 'İlk zəngdən işə salmaya qədər şəffaf kommunikasiya — nə baş verdiyini və niyə olduğunu hər zaman bilirsiniz.',
+        author: '',
+        role: '',
+        company: ''
       },
       {
-        text: 'Komandanın yaradıcı yanaşması və texniki bacarıqları bizim brend identikliyimizi tamamilə dəyişdirdi. Nəticə gözləntilərimizi üstələdi.',
-        author: 'Rəşad Əliyev',
-        role: 'Marketing Director',
-        company: 'Premium Homes'
+        text: 'Brendinizə uyğun, minimal və müasir interfeyslər — auditoriyanız üçün sadə və istifadəsi rahat.',
+        author: '',
+        role: '',
+        company: ''
       },
       {
-        text: 'Professionallıq, sürət və keyfiyyət. Énergie studio rəqəmsal layihələrimiz üçün ən yaxşı tərəfdaşdır. İstənilən brendə məsləhət edə bilərik.',
-        author: 'Nigar Həsənova',
-        role: 'Founder',
-        company: 'Baku Design Week'
+        text: 'Həm dizaynda, həm də performansda detallara diqqət — saytınız dəqiq görünür və sürətli işləyir.',
+        author: '',
+        role: '',
+        company: ''
       }
     ]
   },
