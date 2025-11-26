@@ -2,11 +2,12 @@
 
 import React from 'react';
 import { HeroMassiveWords } from '../ui/HeroMassiveWords';
+import { SectionContainer } from '../layout/SectionContainer';
 
 export const Hero: React.FC = () => {
   return (
     <section id="hero" className="bg-[#f6f1eb]">
-      <div className="mx-auto flex max-w-4xl flex-col items-start px-4 pb-20 pt-24 text-left sm:px-6 lg:max-w-5xl">
+      <SectionContainer className="flex flex-col items-start pb-20 pt-24 text-left">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-600">
           Énergie Studio · Web design
         </p>
@@ -34,7 +35,7 @@ export const Hero: React.FC = () => {
             Start a project
           </a>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 };

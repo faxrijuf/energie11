@@ -5,6 +5,7 @@ import { useLanguage } from '../../i18n/LanguageContext';
 import { Mail, MapPin, CheckCircle2 } from 'lucide-react';
 import { sectionVariant, cardVariant } from '../../utils/motionConfig';
 import { glassPanel, glassInput } from '../../utils/glassStyles';
+import { SectionContainer } from '../layout/SectionContainer';
 
 interface FormData {
   name: string;
@@ -98,7 +99,7 @@ export const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="relative bg-transparent">
-      <div className="mx-auto flex max-w-6xl flex-col items-center px-5 md:px-8 lg:px-10 py-16 md:py-20 lg:py-24">
+      <SectionContainer className="flex flex-col items-center py-16 md:py-20 lg:py-24">
         <motion.div
           variants={sectionVariant}
           initial="hidden"
@@ -235,7 +236,7 @@ export const Contact: React.FC = () => {
             </div>
           </motion.div>
         </motion.div>
-      </div>
+      </SectionContainer>
     </section>
   );
 };

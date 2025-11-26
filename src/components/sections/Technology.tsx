@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { SectionHeader } from '../ui/SectionHeader';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { useScroll } from 'framer-motion';
+import { SectionContainer } from '../layout/SectionContainer';
 
 const techItems = [
   'React',
@@ -56,7 +57,7 @@ export const Technology: React.FC = () => {
       ref={sectionRef}
       className="py-16 md:py-20 lg:py-24"
     >
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 pr-5 pl-0 md:flex-row md:items-center md:gap-16 md:pr-8 md:pl-0 lg:pr-10 lg:pl-0">
+      <SectionContainer className="flex flex-col gap-10 md:flex-row md:items-center md:gap-16">
         {/* roulette on the left, pulled toward and past page edge */}
         <div className="md:w-[60%] flex flex-col items-start gap-6 md:-ml-10 lg:-ml-20 xl:-ml-28">
           <TechRoulette angle={angle} items={techItems} />
@@ -110,7 +111,7 @@ export const Technology: React.FC = () => {
             We work with a focused modern stack that keeps your site fast stable and ready to evolve while the most relevant tools stay in front of you.
           </p>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 };
