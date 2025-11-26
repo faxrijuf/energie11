@@ -10,24 +10,45 @@ export const en = {
     cta: 'Start a project'
   },
   hero: {
+    tagline: 'Boutique web studio for brands that demand clarity.',
     title: {
-      part1: 'We craft exceptional',
-      highlight: 'web experiences',
-      part2: 'that define brand identity'
+      part1: 'We build digital flagships',
+      highlight: 'that move people',
+      part2: 'and outperform templates'
     },
     subtitle:
-      'Énergie Studio is a boutique team crafting distinctive, performance-first websites for brands that want to feel premium online.',
-    ctaPrimary: 'Book a project call',
-    ctaSecondary: 'View selected work',
+      'Énergie Studio is a boutique team shaping performance-led websites with sharp art direction, intuitive journeys, and reliable engineering.',
+    ctaPrimary: 'Schedule a project call',
+    ctaSecondary: 'See selected work',
     mockupAlt: 'Premium web design showcase',
     panel: {
       label: 'Premium Design',
       badge: 'Available'
-    }
+    },
+    cards: [
+      {
+        title: 'Dedicated senior team',
+        description: 'Design directors and engineers stay hands-on from day one through launch.'
+      },
+      {
+        title: 'Fast & polished delivery',
+        description: 'Responsive experiences tuned for performance, SEO, and accessibility.'
+      },
+      {
+        title: 'Global mindset',
+        description: 'Based in Baku, collaborating with teams across time zones without friction.'
+      }
+    ],
+    massiveWords: [
+      'Identity-led art direction',
+      'Conversion-led journeys',
+      'Senior delivery only',
+      'Premium motion & polish'
+    ]
   },
   work: {
     title: 'Signature projects',
-    subtitle: 'Tailored experiences that translate identity into digital clarity',
+    subtitle: 'Tailored experiences that translate identity into confident digital products',
     viewProject: 'View element',
     allProjects: 'All elements',
     filterAll: 'All'
@@ -54,6 +75,21 @@ export const en = {
       title: 'Digital Strategy',
       description:
         'Data-driven strategies to achieve your business goals and connect meaningfully with your audiences.'
+    },
+    ecommerce: {
+      title: 'E-commerce experiences',
+      description:
+        'Conversion-focused shops with clear product hierarchies, simple checkouts, and flexible promotions.'
+    },
+    catalogues: {
+      title: 'Product catalogues',
+      description:
+        'Visual collections for multi-SKU brands with filters, tags, and rich product storytelling.'
+    },
+    portals: {
+      title: 'Booking & service portals',
+      description:
+        'Account-based booking, subscription, and service flows with notifications and tool integrations.'
     }
   },
   philosophy: {
@@ -120,13 +156,17 @@ export const en = {
   },
   technology: {
     title: 'Our technology stack',
-    subtitle: 'Modern, reliable tools we trust for performance and scale'
+    subtitle: 'Modern, reliable tools we trust for performance and scale',
+    controls: {
+      spin: 'Spin',
+      spinning: 'Spinning...'
+    }
   },
   studio: {
     title: 'About the studio',
     subtitle: 'Founded in Baku, building with a global perspective',
     description:
-      'Énergie Studio was founded in 2025 in Baku, Azerbaijan to craft modern, high-quality web experiences. Our international team blends different perspectives, design cultures, and technical expertise to build websites that feel refined and operate seamlessly. We collaborate with clients in Azerbaijan and abroad, delivering digital experiences that are contemporary, clear, and unmistakably on-brand.',
+      'Énergie Studio was founded in 2025 in Baku, Azerbaijan to craft modern, high-quality web experiences. Our international team blends perspectives, design cultures, and technical expertise to build websites that feel refined and operate seamlessly. We collaborate with clients in Azerbaijan and abroad, delivering digital experiences that are contemporary, clear, and unmistakably on-brand.',
     stats: [
       { value: '2025', label: 'Studio founded' },
       { value: 'International', label: 'Team background' },
@@ -139,22 +179,22 @@ export const en = {
     subtitle: 'How we run projects from the first call to launch',
     items: [
       {
-        text: 'Clear communication from the first call to launch so you always know what is happening and why.',
-        author: '',
-        role: '',
-        company: ''
+        text: 'Clear weekly communication and crisp documentation. We always knew what was shipping next and why.',
+        author: 'Leyla Mammadova',
+        role: 'CEO',
+        company: 'TechStart Azerbaijan'
       },
       {
-        text: 'Modern, minimal interfaces that feel on brand and are easy for your audience to use.',
-        author: '',
-        role: '',
-        company: ''
+        text: 'They captured our brand voice in a minimal interface that loads fast and sells the story beautifully.',
+        author: 'Rashad Aliyev',
+        role: 'Marketing Director',
+        company: 'Premium Homes'
       },
       {
-        text: 'Attention to detail in both design and performance so your site looks sharp and works smoothly.',
-        author: '',
-        role: '',
-        company: ''
+        text: 'Attention to detail in both design and performance. The site feels premium and works smoothly across markets.',
+        author: 'Nigar Hasanova',
+        role: 'Founder',
+        company: 'Baku Design Week'
       }
     ]
   },

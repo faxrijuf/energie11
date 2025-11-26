@@ -1,18 +1,22 @@
 // src/components/sections/Work.tsx
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../ui/SectionHeader';
 import { Card } from '../ui/Card';
 import { useLanguage } from '../../i18n/LanguageContext';
-import { projects } from '../../data/projects';
+import { projects, ProjectTranslation } from '../../data/projects';
 import { sectionVariant, cardVariant } from '../../utils/motionConfig';
 import { useSectionInView } from '../../hooks/useSectionInView';
 import { SectionContainer } from '../layout/SectionContainer';
 
-type Project = (typeof projects)[number];
+type LocalizedProject = ProjectTranslation & {
+  id: string;
+  image: string;
+  color: string;
+};
 
-const ProjectCardDesktop: React.FC<{ project: Project; className?: string }> = ({
+const ProjectCardDesktop: React.FC<{ project: LocalizedProject; className?: string }> = ({
   project,
   className = ''
 }) => {
@@ -59,7 +63,7 @@ const ProjectCardDesktop: React.FC<{ project: Project; className?: string }> = (
   );
 };
 
-const ProjectCardMobile: React.FC<{ project: Project }> = ({ project }) => {
+const ProjectCardMobile: React.FC<{ project: LocalizedProject }> = ({ project }) => {
   return (
     <div className="snap-center shrink-0 w-[86vw] max-w-sm">
       <div className="overflow-hidden rounded-3xl bg-white/6 backdrop-blur-xl border border-white/35 shadow-[0_18px_45px_rgba(0,0,0,0.45)]">
@@ -94,8 +98,19 @@ const ProjectCardMobile: React.FC<{ project: Project }> = ({ project }) => {
 };
 
 export const Work: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { ref } = useSectionInView('work');
+
+  const localizedProjects = useMemo(
+    () =>
+      projects.map(project => ({
+        id: project.id,
+        image: project.image,
+        color: project.color,
+        ...(project.translations[language] || project.translations.en)
+      })),
+    [language]
+  );
 
   return (
     <motion.section
@@ -117,7 +132,7 @@ export const Work: React.FC = () => {
           {/* Apple style mobile carousel, no filters */}
           <div className="md:hidden -mx-5 pl-5">
             <div className="flex gap-5 overflow-x-auto pb-6 snap-x snap-mandatory scroll-smooth">
-              {projects.map(project => (
+              {localizedProjects.map(project => (
                 <ProjectCardMobile key={project.id} project={project} />
               ))}
             </div>
@@ -125,7 +140,7 @@ export const Work: React.FC = () => {
 
           {/* desktop and tablet grid, no filters */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5">
-            {projects.map((project, index) => {
+            {localizedProjects.map((project, index) => {
               const spanClasses =
                 index === 0
                   ? 'md:col-span-2 lg:col-span-2 lg:row-span-2'
