@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-export const useSectionInView = (sectionId: string) => {
+export const useSectionInView = () => {
   const ref = useRef<HTMLElement>(null);
   const [active, setActive] = useState(false);
 

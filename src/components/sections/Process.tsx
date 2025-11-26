@@ -8,7 +8,7 @@ import { SectionContainer } from '../layout/SectionContainer';
 
 export const Process: React.FC = () => {
   const { t } = useLanguage();
-  const { ref, active } = useSectionInView('process');
+  const { ref } = useSectionInView();
 
   const steps = t('process.steps');
 

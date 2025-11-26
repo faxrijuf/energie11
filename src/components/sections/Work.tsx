@@ -99,7 +99,7 @@ const ProjectCardMobile: React.FC<{ project: LocalizedProject }> = ({ project })
 
 export const Work: React.FC = () => {
   const { t, language } = useLanguage();
-  const { ref } = useSectionInView('work');
+  const { ref } = useSectionInView();
 
   const localizedProjects = useMemo(
     () =>

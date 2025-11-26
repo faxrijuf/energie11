@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Logo } from '../ui/Logo';
 import { useLanguage } from '../../i18n/LanguageContext';
 
-const headerVariants = {
+const headerVariants: Variants = {
   expanded: {
     opacity: 1,
     y: 0,
@@ -19,7 +19,7 @@ const headerVariants = {
   },
 };
 
-const logoBubbleVariants = {
+const logoBubbleVariants: Variants = {
   expanded: {
     opacity: 0,
     scale: 0.9,
