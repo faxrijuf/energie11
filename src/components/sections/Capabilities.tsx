@@ -224,6 +224,7 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
   const [isSpinning, setIsSpinning] = useState(false);
   const [isJackpot, setIsJackpot] = useState(false);
   const [showWave, setShowWave] = useState(false);
+  const [useTransition, setUseTransition] = useState(false);
 
   const stopTimeoutRef = useRef<number | null>(null);
 
@@ -248,6 +249,10 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
     setIsJackpot(false);
     setShowWave(false);
 
+    const normalizedStart = reelIndex.map(idx => idx % items.length);
+    setUseTransition(false);
+    setReelIndex(normalizedStart);
+
     const forceJackpot = Math.random() < 0.2;
 
     let baseIndices: number[];
@@ -266,27 +271,32 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
       return target > maxIndex ? maxIndex : target;
     });
 
-    setReelIndex(targets);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setUseTransition(true);
+        setReelIndex(targets);
 
-    stopTimeoutRef.current = window.setTimeout(() => {
-      setIsSpinning(false);
+        stopTimeoutRef.current = window.setTimeout(() => {
+          setIsSpinning(false);
 
-      const finalLabels = targets.map(idx => {
-        const labelIndex = idx % items.length;
-        return items[labelIndex];
+          const finalLabels = targets.map(idx => {
+            const labelIndex = idx % items.length;
+            return items[labelIndex];
+          });
+
+          const jackpot =
+            finalLabels[0] === finalLabels[1] &&
+            finalLabels[1] === finalLabels[2];
+
+          setIsJackpot(jackpot);
+
+          if (jackpot) {
+            setShowWave(true);
+            window.setTimeout(() => setShowWave(false), 1300);
+          }
+        }, SPIN_DURATION);
       });
-
-      const jackpot =
-        finalLabels[0] === finalLabels[1] &&
-        finalLabels[1] === finalLabels[2];
-
-      setIsJackpot(jackpot);
-
-      if (jackpot) {
-        setShowWave(true);
-        window.setTimeout(() => setShowWave(false), 1300);
-      }
-    }, SPIN_DURATION);
+    });
   };
 
   return (
@@ -306,20 +316,17 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
       )}
 
       <div className="relative z-10 space-y-4">
-        <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-600">
             <span className="h-2 w-2 rounded-full bg-[#E65A4F] animate-pulse" />
-            <span>Slot status</span>
+            <span>Stack slots</span>
           </div>
 
-          <div className="flex items-center gap-2 text-[11px] font-medium text-neutral-600">
-            <span className="rounded-full bg-neutral-900/5 px-3 py-1 uppercase tracking-[0.14em] text-neutral-700">
-              Ready to spin
+          {isJackpot && (
+            <span className="rounded-full bg-[#E65A4F]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#E65A4F]">
+              Triple match
             </span>
-            <span className="rounded-full bg-[#E65A4F]/10 px-3 py-1 uppercase tracking-[0.14em] text-[#E65A4F]">
-              Fair mix mode
-            </span>
-          </div>
+          )}
         </div>
 
         <div className="relative overflow-hidden rounded-2xl border border-white/70 bg-white/80 px-3 py-3 shadow-[0_12px_30px_rgba(15,23,42,0.07)]">
@@ -338,9 +345,11 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
                     className="absolute left-0 top-0 w-full"
                     style={{
                       transform: `translateY(${-reelIndex[reel] * SLOT_HEIGHT}px)`,
-                      transition: isSpinning
-                        ? `transform ${SPIN_DURATION}ms cubic-bezier(0.22,0.61,0.36,1)`
-                        : 'transform 0ms'
+                      transition: useTransition
+                        ? `transform ${SPIN_DURATION}ms cubic-bezier(0.16,0.84,0.44,1)`
+                        : 'none',
+                      transitionDelay: useTransition ? `${reel * 80}ms` : '0ms',
+                      willChange: 'transform'
                     }}
                   >
                     {reelSymbols.map((label, idx) => {
@@ -386,15 +395,6 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-3 text-[11px] text-neutral-600">
-          <span className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-neutral-300" />
-            <span className="uppercase tracking-[0.12em]">Tech lineup</span>
-          </span>
-          <span className="text-[#E65A4F] font-semibold uppercase tracking-[0.14em]">
-            {isJackpot ? 'Triple match unlocked' : 'Spin to explore new stacks'}
-          </span>
-        </div>
       </div>
     </div>
   );
