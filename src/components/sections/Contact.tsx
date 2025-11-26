@@ -220,18 +220,30 @@ export const Contact: React.FC = () => {
             </div>
           </motion.div>
 
-          <motion.div variants={cardVariant} className="mt-8 flex flex-col md:flex-row items-center justify-center gap-6 text-xs text-neutral-600">
-            <div className="flex items-center gap-2">
-              <Mail size={14} />
-              <span>{t('contact.info.email')}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin size={14} />
-              <span>{t('contact.info.location')}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 size={14} className="text-green-600" />
-              <span>{t('contact.info.availability')}</span>
+          <motion.div variants={cardVariant} className={`mt-8 ${glassPanel}`}>
+            <div className="p-5 md:p-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs md:text-sm text-neutral-700">
+                <a
+                  href={`mailto:${t('contact.info.email')}`}
+                  className="flex items-center gap-3 rounded-xl px-3 py-2 transition-colors hover:bg-white/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red/30"
+                >
+                  <Mail size={16} />
+                  <span className="font-medium">{t('contact.info.email')}</span>
+                </a>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t('contact.info.location'))}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 rounded-xl px-3 py-2 transition-colors hover:bg-white/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red/30"
+                >
+                  <MapPin size={16} />
+                  <span className="font-medium">{t('contact.info.location')}</span>
+                </a>
+                <div className="flex items-center gap-3 rounded-xl px-3 py-2 text-neutral-700">
+                  <CheckCircle2 size={16} className="text-green-600" />
+                  <span className="font-medium">{t('contact.info.availability')}</span>
+                </div>
+              </div>
             </div>
           </motion.div>
         </motion.div>
