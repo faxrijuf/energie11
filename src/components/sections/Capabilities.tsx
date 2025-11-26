@@ -225,7 +225,6 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
   const [isJackpot, setIsJackpot] = useState(false);
   const [showWave, setShowWave] = useState(false);
   const [useTransition, setUseTransition] = useState(false);
-  const [slotHeight, setSlotHeight] = useState(SLOT_HEIGHT);
 
   const stopTimeoutRef = useRef<number | null>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -264,7 +263,7 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
     setShowWave(false);
 
     const normalizedStart = reelIndex.map(idx => idx % items.length);
-    setUseTransition(!prefersReducedMotion);
+    setUseTransition(false);
     setReelIndex(normalizedStart);
 
     const forceJackpot = Math.random() < 0.2;
@@ -308,7 +307,7 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
             setShowWave(true);
             window.setTimeout(() => setShowWave(false), 1300);
           }
-        }, spinDuration);
+        }, SPIN_DURATION);
       });
     });
   };
@@ -358,9 +357,9 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
                   <div
                     className="absolute left-0 top-0 w-full"
                     style={{
-                      transform: `translateY(${-reelIndex[reel] * slotHeight}px)`,
+                      transform: `translateY(${-reelIndex[reel] * SLOT_HEIGHT}px)`,
                       transition: useTransition
-                        ? `transform ${spinDuration}ms cubic-bezier(0.16,0.84,0.44,1)`
+                        ? `transform ${SPIN_DURATION}ms cubic-bezier(0.16,0.84,0.44,1)`
                         : 'none',
                       transitionDelay: useTransition ? `${reel * 80}ms` : '0ms',
                       willChange: 'transform'
