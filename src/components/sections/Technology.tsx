@@ -126,7 +126,7 @@ const TechRoulette: React.FC<TechRouletteProps> = ({ angle, items }) => {
   const step = 360 / count;
 
   const normalized = ((angle % 360) + 360) % 360;
-  let rawIndex = Math.round(-normalized / step);
+  const rawIndex = Math.round(-normalized / step);
   const activeIndex = ((rawIndex % count) + count) % count;
 
   return (
