@@ -13,7 +13,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = React.memo(({
 }) => (
   <header className="mb-10 md:mb-12">
     {eyebrow && (
-      <p className="text-xs font-medium tracking-[0.25em] uppercase text-[#c62828]">
+      <p className="text-xs font-medium tracking-[0.25em] uppercase text-brand-red">
         {eyebrow}
       </p>
     )}
