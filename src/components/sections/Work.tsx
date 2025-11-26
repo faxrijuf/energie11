@@ -8,6 +8,7 @@ import { useLanguage } from '../../i18n/LanguageContext';
 import { projects } from '../../data/projects';
 import { sectionVariant, cardVariant } from '../../utils/motionConfig';
 import { useSectionInView } from '../../hooks/useSectionInView';
+import { SectionContainer } from '../layout/SectionContainer';
 
 type Project = (typeof projects)[number];
 
@@ -106,7 +107,7 @@ export const Work: React.FC = () => {
       viewport={{ once: true, amount: 0.3 }}
       className="py-16 md:py-20 lg:py-24"
     >
-      <div className="mx-auto max-w-6xl px-5 md:px-0">
+      <SectionContainer>
         <SectionHeader
           title={t('work.title')}
           description={t('work.subtitle')}
@@ -142,7 +143,7 @@ export const Work: React.FC = () => {
             })}
           </div>
         </div>
-      </div>
+      </SectionContainer>
     </motion.section>
   );
 };

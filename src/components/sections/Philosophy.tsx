@@ -5,6 +5,7 @@ import { useLanguage } from '../../i18n/LanguageContext';
 import { sectionVariant, cardVariant } from '../../utils/motionConfig';
 import { glassCallout } from '../../utils/glassStyles';
 import { useSectionInView } from '../../hooks/useSectionInView';
+import { SectionContainer } from '../layout/SectionContainer';
 
 export const Philosophy: React.FC = () => {
   const { t } = useLanguage();
@@ -22,7 +23,7 @@ export const Philosophy: React.FC = () => {
       viewport={{ once: true, amount: 0.2 }}
       className="relative bg-transparent"
     >
-      <div className="mx-auto max-w-6xl px-5 md:px-8 lg:px-10 py-16 md:py-20 lg:py-24 space-y-6 lg:space-y-0 lg:grid gap-8 md:gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.2fr)] items-start">
+      <SectionContainer className="py-16 md:py-20 lg:py-24 space-y-6 lg:space-y-0 lg:grid gap-8 md:gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.2fr)] items-start">
         <div>
           <SectionHeader
             title={t('philosophy.title')}
@@ -58,7 +59,7 @@ export const Philosophy: React.FC = () => {
             </motion.article>
           ))}
         </div>
-      </div>
+      </SectionContainer>
     </motion.section>
   );
 };

@@ -4,6 +4,7 @@ import { SectionHeader } from '../ui/SectionHeader';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { sectionVariant, cardVariant } from '../../utils/motionConfig';
 import { useSectionInView } from '../../hooks/useSectionInView';
+import { SectionContainer } from '../layout/SectionContainer';
 
 export const Process: React.FC = () => {
   const { t } = useLanguage();
@@ -21,7 +22,7 @@ export const Process: React.FC = () => {
       viewport={{ once: true, amount: 0.2 }}
       className="relative bg-transparent"
     >
-      <div className="mx-auto max-w-6xl px-5 md:px-8 lg:px-10 py-16 md:py-20 lg:py-24">
+      <SectionContainer className="py-16 md:py-20 lg:py-24">
         <SectionHeader
           title={t('process.title')}
           description={t('process.subtitle')}
@@ -48,7 +49,7 @@ export const Process: React.FC = () => {
             </motion.div>
           ))}
         </div>
-      </div>
+      </SectionContainer>
     </motion.section>
   );
 };

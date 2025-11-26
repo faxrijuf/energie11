@@ -10,6 +10,7 @@ import { SectionHeader } from '../ui/SectionHeader';
 import { Card } from '../ui/Card';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { useScroll } from 'framer-motion';
+import { SectionContainer } from '../layout/SectionContainer';
 
 const techItems = [
   'React',
@@ -67,7 +68,7 @@ export const Capabilities: React.FC = () => {
       ref={sectionRef}
       className="py-16 md:py-20 lg:py-24"
     >
-      <div className="mx-auto max-w-6xl px-5 md:px-0">
+      <SectionContainer>
         {/* slots visible on all devices */}
         <div className="mb-10 w-full">
           <h3 className="mb-3 text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-500">
@@ -198,7 +199,7 @@ export const Capabilities: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 };
