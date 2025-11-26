@@ -95,23 +95,26 @@
   }
 
   .jackpot-wave {
-    @apply absolute rounded-full bg-[#E65A4F]/18;
-    animation: jackpotWave 1.2s ease-out forwards;
+    @apply absolute rounded-full bg-[#E65A4F]/18 blur-[1px];
+    animation: jackpotWave 1.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
   }
 
   .jackpot-wave--outer {
     @apply h-96 w-96;
-    animation-duration: 1400ms;
+    animation-duration: 1600ms;
   }
 
   .jackpot-wave--mid {
     @apply h-72 w-72;
-    animation-duration: 1280ms;
+    animation-duration: 1750ms;
+    animation-delay: 90ms;
+    opacity: 0.75;
   }
 
   .jackpot-wave--inner {
-    @apply h-56 w-56;
-    animation: jackpotGlow 1200ms ease-out forwards;
+    @apply h-56 w-56 shadow-[0_0_32px_rgba(230,90,79,0.35)];
+    animation: jackpotGlow 1700ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    animation-delay: 150ms;
   }
 }
 @layer utilities {
@@ -122,30 +125,34 @@
 
 @keyframes jackpotWave {
   0% {
-    transform: scale(0.72);
-    opacity: 0.7;
+    transform: scale(0.65);
+    opacity: 0.78;
   }
-  55% {
-    transform: scale(1.05);
-    opacity: 0.38;
+  45% {
+    transform: scale(0.98);
+    opacity: 0.55;
+  }
+  75% {
+    transform: scale(1.22);
+    opacity: 0.2;
   }
   100% {
-    transform: scale(1.34);
+    transform: scale(1.38);
     opacity: 0;
   }
 }
 
 @keyframes jackpotGlow {
   0% {
-    transform: scale(0.88);
-    opacity: 0.48;
+    transform: scale(0.82);
+    opacity: 0.55;
   }
-  65% {
-    transform: scale(1.08);
-    opacity: 0.24;
+  50% {
+    transform: scale(1.05);
+    opacity: 0.32;
   }
   100% {
-    transform: scale(1.22);
+    transform: scale(1.24);
     opacity: 0;
   }
 }
