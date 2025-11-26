@@ -34,7 +34,7 @@ export const Process: React.FC = () => {
               variants={cardVariant}
               className="flex items-start gap-4"
             >
-              <div className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#c62828] text-xs font-medium text-white shadow-[0_10px_25px_rgba(198,40,40,0.35)]">
+              <div className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-brand-red text-xs font-medium text-white shadow-[0_10px_25px_rgba(198,40,40,0.35)]">
                 {index + 1}
               </div>
               <div className="flex-1">

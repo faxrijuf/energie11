@@ -211,7 +211,7 @@ export const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center rounded-full bg-[#c62828] px-5 md:px-6 py-2.5 md:py-2.75 text-[13px] md:text-sm font-medium text-white shadow-[0_14px_30px_rgba(198,40,40,0.45)] transition-all duration-200 hover:bg-[#b71c1c] hover:shadow-[0_18px_42px_rgba(198,40,40,0.55)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="btn-brand w-full px-5 md:px-6 py-2.5 md:py-2.75 text-[13px] md:text-sm"
                   >
                     {isSubmitting ? t('contact.form.sending') : t('contact.form.submit')}
                   </button>

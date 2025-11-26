@@ -171,7 +171,7 @@ export const Header: React.FC = () => {
                       onClick={() => setLanguage(lang.code)}
                       className={`rounded-full px-2 md:px-2.5 py-1 text-[10px] md:text-[11px] font-medium uppercase tracking-[0.18em] transition-colors active:scale-95 ${
                         language === lang.code
-                          ? 'bg-[#c62828] text-white shadow-[0_10px_25px_rgba(198,40,40,0.35)]'
+                          ? 'bg-brand-red text-white shadow-[0_10px_25px_rgba(198,40,40,0.35)]'
                           : 'border border-white/40 bg-white/10 text-neutral-700 hover:bg-white/20'
                       }`}
                     >

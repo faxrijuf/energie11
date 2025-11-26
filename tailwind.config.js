@@ -4,7 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-red': '#c62828',
+        'brand-red': {
+          DEFAULT: '#c62828',
+          soft: '#d63c3c',
+          dark: '#b71c1c',
+          deeper: '#9f1a1a',
+        },
         'sand': '#f6f1eb',
       },
       fontFamily: {
