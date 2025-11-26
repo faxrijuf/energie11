@@ -231,6 +231,9 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
   const prefersReducedMotion = useReducedMotion();
   const slotWindowHeight = slotHeight + 8;
   const spinDuration = prefersReducedMotion ? 300 : SPIN_DURATION;
+  const spinEasing = prefersReducedMotion
+    ? 'linear'
+    : 'cubic-bezier(0.22, 0.74, 0.18, 1)';
 
   const reelSymbols = useMemo(
     () => Array(REEL_REPEAT).fill(items).flat(),
@@ -352,16 +355,20 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
                 <div
                   key={reel}
                   className="relative w-full overflow-hidden rounded-xl border border-neutral-200/70 bg-white/90"
-                  style={{ minWidth: 0, height: slotWindowHeight }}
+                  style={{
+                    minWidth: 0,
+                    height: slotWindowHeight,
+                    ['--slot-height' as string]: `${slotHeight}px`
+                  }}
                 >
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-neutral-100/40 via-transparent to-neutral-100/55" />
                   <div
                     className="absolute left-0 top-0 w-full"
                     style={{
-                      transform: `translateY(${-reelIndex[reel] * slotHeight}px)`,
-                      transition: useTransition
-                        ? `transform ${spinDuration}ms cubic-bezier(0.16,0.84,0.44,1)`
-                        : 'none',
+                      transform: `translate3d(0, ${-reelIndex[reel] * slotHeight}px, 0)`,
+                      transitionProperty: useTransition ? 'transform' : undefined,
+                      transitionDuration: useTransition ? `${spinDuration}ms` : undefined,
+                      transitionTimingFunction: useTransition ? spinEasing : undefined,
                       transitionDelay: useTransition ? `${reel * 80}ms` : '0ms',
                       willChange: 'transform'
                     }}
@@ -378,7 +385,7 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
                         >
                           <div
                             className={[
-                              'flex h-[38px] w-full max-w-[150px] items-center justify-center rounded-full px-4 text-[11px] font-semibold leading-tight text-center uppercase tracking-[0.12em]',
+                              'flex w-full max-w-[150px] items-center justify-center rounded-full px-4 text-[11px] font-semibold leading-tight text-center uppercase tracking-[0.12em]',
                               'transition-all duration-300',
                               isJackpotSymbol
                                 ? 'bg-gradient-to-br from-white to-white/80 text-neutral-900 shadow-[0_0_20px_rgba(255,255,255,0.85)] border border-white'
@@ -386,6 +393,7 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
                                 ? 'bg-white text-neutral-900 shadow-[0_10px_24px_rgba(15,23,42,0.08)] border border-white'
                                 : 'bg-white/70 text-neutral-900/80 border border-white/70'
                             ].join(' ')}
+                            style={{ minHeight: slotHeight }}
                           >
                             {label}
                           </div>
