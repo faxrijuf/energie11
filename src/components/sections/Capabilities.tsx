@@ -9,7 +9,7 @@ import React, {
 import { SectionHeader } from '../ui/SectionHeader';
 import { Card } from '../ui/Card';
 import { useLanguage } from '../../i18n/LanguageContext';
-import { useScroll } from 'framer-motion';
+import { useReducedMotion, useScroll } from 'framer-motion';
 import { SectionContainer } from '../layout/SectionContainer';
 
 const techItems = [
@@ -227,6 +227,9 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
   const [useTransition, setUseTransition] = useState(false);
 
   const stopTimeoutRef = useRef<number | null>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const slotWindowHeight = slotHeight + 8;
+  const spinDuration = prefersReducedMotion ? 300 : SPIN_DURATION;
 
   const reelSymbols = useMemo(
     () => Array(REEL_REPEAT).fill(items).flat(),
@@ -235,10 +238,20 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
   const maxIndex = reelSymbols.length - 1;
 
   useEffect(() => {
+    const mobileMedia = window.matchMedia('(max-width: 480px)');
+    const updateSlotHeight = () => {
+      setSlotHeight(mobileMedia.matches ? 38 : SLOT_HEIGHT);
+    };
+
+    updateSlotHeight();
+    mobileMedia.addEventListener('change', updateSlotHeight);
+
     return () => {
       if (stopTimeoutRef.current) {
         window.clearTimeout(stopTimeoutRef.current);
       }
+
+      mobileMedia.removeEventListener('change', updateSlotHeight);
     };
   }, []);
 
@@ -300,7 +313,7 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
   };
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-white/70 bg-gradient-to-br from-white via-white/80 to-neutral-50/70 p-5 md:p-6 backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
+    <div className="relative overflow-hidden rounded-3xl border border-white/70 bg-gradient-to-br from-white via-white/80 to-neutral-50/70 p-5 md:p-6 backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.08)] max-w-xl sm:max-w-3xl mx-auto">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(230,90,79,0.16),transparent_32%),radial-gradient(circle_at_80%_0%,rgba(59,11,7,0.08),transparent_36%)]"
         aria-hidden
@@ -333,12 +346,12 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
           <div className="pointer-events-none absolute inset-y-[18%] left-1 right-1 rounded-2xl border border-[#E65A4F]/25 bg-[#E65A4F]/6 shadow-[0_0_24px_rgba(230,90,79,0.16)]" />
 
           <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-3">
-            <div className="flex flex-1 gap-2">
+            <div className="flex flex-1 gap-2 sm:gap-3">
               {[0, 1, 2].map(reel => (
                 <div
                   key={reel}
-                  className="relative h-[52px] w-full overflow-hidden rounded-xl border border-neutral-200/70 bg-white/90"
-                  style={{ minWidth: 0 }}
+                  className="relative w-full overflow-hidden rounded-xl border border-neutral-200/70 bg-white/90"
+                  style={{ minWidth: 0, height: slotWindowHeight }}
                 >
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-neutral-100/40 via-transparent to-neutral-100/55" />
                   <div
@@ -359,8 +372,8 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
                       return (
                         <div
                           key={`${reel}-${idx}-${label}`}
-                          className="flex h-[44px] w-full items-center justify-center"
-                          style={{ height: SLOT_HEIGHT }}
+                          className="flex w-full items-center justify-center"
+                          style={{ height: slotHeight }}
                         >
                           <div
                             className={[
@@ -387,7 +400,7 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
               type="button"
               onClick={startSpin}
               disabled={isSpinning}
-              className="group relative flex h-12 w-full flex-shrink-0 items-center justify-center overflow-hidden rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#E65A4F]/60 focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-80 sm:w-24"
+              className="group relative flex h-12 w-full flex-shrink-0 items-center justify-center overflow-hidden rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#E65A4F]/60 focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-80 sm:w-24 touch-manipulation"
             >
               <span className="absolute inset-0 rounded-full bg-gradient-to-br from-[#E65A4F] to-[#b53a32] shadow-[0_10px_25px_rgba(230,90,79,0.4)] transition-transform duration-200 group-active:scale-95 group-hover:scale-[1.02]" />
               <span className="relative text-white">{isSpinning ? spinningLabel : spinLabel}</span>
