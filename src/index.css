@@ -95,7 +95,7 @@
   }
 
   .jackpot-wave {
-    @apply absolute rounded-full bg-[#E65A4F] bg-opacity-20;
+    @apply absolute rounded-full bg-[#E65A4F]/18;
     animation: jackpotWave 1.2s ease-out forwards;
   }
 
