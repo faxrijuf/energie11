@@ -108,7 +108,7 @@ export const Technology: React.FC = () => {
             description={t('technology.subtitle')}
           />
           <p className="mt-4 text-sm text-neutral-600 max-w-md">
-            We work with a focused modern stack that keeps your site fast stable and ready to evolve while the most relevant tools stay in front of you.
+            We work with a focused modern stack that keeps your site fast, stable, and ready to evolve while the most relevant tools stay right in view.
           </p>
         </div>
       </SectionContainer>

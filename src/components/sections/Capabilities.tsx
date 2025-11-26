@@ -35,7 +35,7 @@ const VERTICAL_FACTOR = 1.35;
 const SLOT_HEIGHT = 44;
 const REEL_CYCLES = 4;
 const REEL_REPEAT = REEL_CYCLES + 2;
-const SPIN_DURATION = 900;
+const SPIN_DURATION = 1100;
 
 export const Capabilities: React.FC = () => {
   const { t } = useLanguage();
@@ -284,7 +284,7 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
 
       if (jackpot) {
         setShowWave(true);
-        window.setTimeout(() => setShowWave(false), 900);
+        window.setTimeout(() => setShowWave(false), 1300);
       }
     }, SPIN_DURATION);
   };
