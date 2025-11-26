@@ -299,25 +299,25 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
       {/* strong jackpot wave behind content */}
       {showWave && (
         <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
-          <span className="jackpot-wave jackpot-wave--outer" />
-          <span className="jackpot-wave jackpot-wave--mid" />
-          <span className="jackpot-wave jackpot-wave--inner" />
+          <span className="h-96 w-96 rounded-full bg-[#E65A4F]/30 animate-ping" />
+          <span className="absolute h-72 w-72 rounded-full bg-[#E65A4F]/25 animate-ping" />
+          <span className="absolute h-52 w-52 rounded-full bg-[#E65A4F]/20 animate-pulse" />
         </div>
       )}
 
       <div className="relative z-10 space-y-4">
-        <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-600">
             <span className="h-2 w-2 rounded-full bg-[#E65A4F] animate-pulse" />
-            <span>Slot status</span>
+            <span>Live rack</span>
           </div>
 
           <div className="flex items-center gap-2 text-[11px] font-medium text-neutral-600">
             <span className="rounded-full bg-neutral-900/5 px-3 py-1 uppercase tracking-[0.14em] text-neutral-700">
-              Ready to spin
+              Stack ready
             </span>
             <span className="rounded-full bg-[#E65A4F]/10 px-3 py-1 uppercase tracking-[0.14em] text-[#E65A4F]">
-              Fair mix mode
+              Design safe
             </span>
           </div>
         </div>
@@ -325,7 +325,7 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
         <div className="relative overflow-hidden rounded-2xl border border-white/70 bg-white/80 px-3 py-3 shadow-[0_12px_30px_rgba(15,23,42,0.07)]">
           <div className="pointer-events-none absolute inset-y-[18%] left-1 right-1 rounded-2xl border border-[#E65A4F]/25 bg-[#E65A4F]/6 shadow-[0_0_24px_rgba(230,90,79,0.16)]" />
 
-          <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-3">
+          <div className="relative flex items-center gap-3">
             <div className="flex flex-1 gap-2">
               {[0, 1, 2].map(reel => (
                 <div
@@ -378,7 +378,7 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
               type="button"
               onClick={startSpin}
               disabled={isSpinning}
-              className="group relative flex h-12 w-full flex-shrink-0 items-center justify-center overflow-hidden rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#E65A4F]/60 focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-80 sm:w-24"
+              className="group relative flex h-12 w-24 flex-shrink-0 items-center justify-center overflow-hidden rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#E65A4F]/60 focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-80"
             >
               <span className="absolute inset-0 rounded-full bg-gradient-to-br from-[#E65A4F] to-[#b53a32] shadow-[0_10px_25px_rgba(230,90,79,0.4)] transition-transform duration-200 group-active:scale-95 group-hover:scale-[1.02]" />
               <span className="relative text-white">{isSpinning ? spinningLabel : spinLabel}</span>
@@ -389,10 +389,10 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
         <div className="flex flex-wrap items-center justify-between gap-3 text-[11px] text-neutral-600">
           <span className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-neutral-300" />
-            <span className="uppercase tracking-[0.12em]">Tech lineup</span>
+            <span className="uppercase tracking-[0.12em]">Modern stack rack</span>
           </span>
           <span className="text-[#E65A4F] font-semibold uppercase tracking-[0.14em]">
-            {isJackpot ? 'Triple match unlocked' : 'Spin to explore new stacks'}
+            {isJackpot ? 'Triple match unlocked' : 'Aligned to the site grid'}
           </span>
         </div>
       </div>
