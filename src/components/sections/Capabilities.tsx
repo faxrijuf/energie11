@@ -32,10 +32,10 @@ const RADIUS = 300;
 const VERTICAL_FACTOR = 1.35;
 
 // slot machine constants
-const SLOT_HEIGHT = 40;
+const SLOT_HEIGHT = 44;
 const REEL_CYCLES = 4;
 const REEL_REPEAT = REEL_CYCLES + 2;
-const SPIN_DURATION = 900;
+const SPIN_DURATION = 1100;
 
 export const Capabilities: React.FC = () => {
   const { t } = useLanguage();
@@ -210,8 +210,7 @@ export const Capabilities: React.FC = () => {
 
 /**
  * Slot styled tech display
- * machine is red
- * slots are neutral/translucent white
+ * follows the site's glass/neutral design language with red accents
  * jackpot when all three final labels match
  */
 type TechSlotsProps = {
@@ -285,77 +284,117 @@ const TechSlots: React.FC<TechSlotsProps> = ({ items, spinLabel, spinningLabel }
 
       if (jackpot) {
         setShowWave(true);
-        window.setTimeout(() => setShowWave(false), 900);
+        window.setTimeout(() => setShowWave(false), 1300);
       }
     }, SPIN_DURATION);
   };
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-[#E65A4F]/75 bg-[#E65A4F] p-4 backdrop-blur-xl shadow-[0_18px_45px_rgba(230,90,79,0.45)]">
+    <div className="relative overflow-hidden rounded-3xl border border-white/70 bg-gradient-to-br from-white via-white/80 to-neutral-50/70 p-5 md:p-6 backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(230,90,79,0.16),transparent_32%),radial-gradient(circle_at_80%_0%,rgba(59,11,7,0.08),transparent_36%)]"
+        aria-hidden
+      />
+
       {/* strong jackpot wave behind content */}
       {showWave && (
         <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
-          <span className="h-96 w-96 rounded-full bg-[#E65A4F]/55 animate-ping" />
-          <span className="absolute h-72 w-72 rounded-full bg-[#E65A4F]/40 animate-ping" />
-          <span className="absolute h-52 w-52 rounded-full bg-[#E65A4F]/30 animate-pulse" />
+          <span className="h-96 w-96 rounded-full bg-[#E65A4F]/30 animate-ping" />
+          <span className="absolute h-72 w-72 rounded-full bg-[#E65A4F]/25 animate-ping" />
+          <span className="absolute h-52 w-52 rounded-full bg-[#E65A4F]/20 animate-pulse" />
         </div>
       )}
 
-      <div className="relative z-10 flex items-center gap-3">
-        <div className="flex flex-1 gap-2">
-          {[0, 1, 2].map(reel => (
-            <div
-              key={reel}
-              className="relative h-[40px] w-full overflow-hidden rounded-2xl bg-black/10"
-              style={{ minWidth: 0 }}
-            >
-              <div
-                className="absolute left-0 top-0 w-full"
-                style={{
-                  transform: `translateY(${-reelIndex[reel] * SLOT_HEIGHT}px)`,
-                  transition: isSpinning
-                    ? `transform ${SPIN_DURATION}ms cubic-bezier(0.22,0.61,0.36,1)`
-                    : 'transform 0ms'
-                }}
-              >
-                {reelSymbols.map((label, idx) => {
-                  const isCenter = idx === reelIndex[reel] && !isSpinning;
-                  const isJackpotSymbol = isCenter && isJackpot;
+      <div className="relative z-10 space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-600">
+            <span className="h-2 w-2 rounded-full bg-[#E65A4F] animate-pulse" />
+            <span>Live rack</span>
+          </div>
 
-                  return (
-                    <div
-                      key={`${reel}-${idx}-${label}`}
-                      className="flex h-[40px] w-full items-center justify-center"
-                      style={{ height: SLOT_HEIGHT }}
-                    >
-                      <div
-                        className={[
-                          'flex h-9 w-full max-w-[140px] items-center justify-center rounded-full px-4 text-[11px] font-medium leading-tight text-center',
-                          'transition-colors duration-300',
-                          isJackpotSymbol
-                            ? 'bg-white text-neutral-900 shadow-[0_0_20px_rgba(255,255,255,0.9)] border border-white/70'
-                            : isCenter
-                            ? 'bg-white/90 text-neutral-900 shadow-[0_0_14px_rgba(0,0,0,0.28)] border border-white/60'
-                            : 'bg-white/55 text-neutral-900/85 border border-white/35'
-                        ].join(' ')}
-                      >
-                        {label}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+          <div className="flex items-center gap-2 text-[11px] font-medium text-neutral-600">
+            <span className="rounded-full bg-neutral-900/5 px-3 py-1 uppercase tracking-[0.14em] text-neutral-700">
+              Stack ready
+            </span>
+            <span className="rounded-full bg-[#E65A4F]/10 px-3 py-1 uppercase tracking-[0.14em] text-[#E65A4F]">
+              Design safe
+            </span>
+          </div>
         </div>
 
-        <button
-          type="button"
-          onClick={startSpin}
-          className="flex h-10 w-20 flex-shrink-0 items-center justify-center rounded-full border border-white/85 bg.white/40 text-[11px] font-medium uppercase tracking-[0.16em] text-[#3b0b07] shadow-[0_0_18px_rgba(0,0,0,0.25)] transition-all duration-200 active:scale-95"
-        >
-          {isSpinning ? spinningLabel : spinLabel}
-        </button>
+        <div className="relative overflow-hidden rounded-2xl border border-white/70 bg-white/80 px-3 py-3 shadow-[0_12px_30px_rgba(15,23,42,0.07)]">
+          <div className="pointer-events-none absolute inset-y-[18%] left-1 right-1 rounded-2xl border border-[#E65A4F]/25 bg-[#E65A4F]/6 shadow-[0_0_24px_rgba(230,90,79,0.16)]" />
+
+          <div className="relative flex items-center gap-3">
+            <div className="flex flex-1 gap-2">
+              {[0, 1, 2].map(reel => (
+                <div
+                  key={reel}
+                  className="relative h-[52px] w-full overflow-hidden rounded-xl border border-neutral-200/70 bg-white/90"
+                  style={{ minWidth: 0 }}
+                >
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-neutral-100/40 via-transparent to-neutral-100/55" />
+                  <div
+                    className="absolute left-0 top-0 w-full"
+                    style={{
+                      transform: `translateY(${-reelIndex[reel] * SLOT_HEIGHT}px)`,
+                      transition: isSpinning
+                        ? `transform ${SPIN_DURATION}ms cubic-bezier(0.22,0.61,0.36,1)`
+                        : 'transform 0ms'
+                    }}
+                  >
+                    {reelSymbols.map((label, idx) => {
+                      const isCenter = idx === reelIndex[reel] && !isSpinning;
+                      const isJackpotSymbol = isCenter && isJackpot;
+
+                      return (
+                        <div
+                          key={`${reel}-${idx}-${label}`}
+                          className="flex h-[44px] w-full items-center justify-center"
+                          style={{ height: SLOT_HEIGHT }}
+                        >
+                          <div
+                            className={[
+                              'flex h-[38px] w-full max-w-[150px] items-center justify-center rounded-full px-4 text-[11px] font-semibold leading-tight text-center uppercase tracking-[0.12em]',
+                              'transition-all duration-300',
+                              isJackpotSymbol
+                                ? 'bg-gradient-to-br from-white to-white/80 text-neutral-900 shadow-[0_0_20px_rgba(255,255,255,0.85)] border border-white'
+                                : isCenter
+                                ? 'bg-white text-neutral-900 shadow-[0_10px_24px_rgba(15,23,42,0.08)] border border-white'
+                                : 'bg-white/70 text-neutral-900/80 border border-white/70'
+                            ].join(' ')}
+                          >
+                            {label}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={startSpin}
+              disabled={isSpinning}
+              className="group relative flex h-12 w-24 flex-shrink-0 items-center justify-center overflow-hidden rounded-full text-[11px] font-semibold uppercase tracking-[0.16em] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#E65A4F]/60 focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-80"
+            >
+              <span className="absolute inset-0 rounded-full bg-gradient-to-br from-[#E65A4F] to-[#b53a32] shadow-[0_10px_25px_rgba(230,90,79,0.4)] transition-transform duration-200 group-active:scale-95 group-hover:scale-[1.02]" />
+              <span className="relative text-white">{isSpinning ? spinningLabel : spinLabel}</span>
+            </button>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-between gap-3 text-[11px] text-neutral-600">
+          <span className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-neutral-300" />
+            <span className="uppercase tracking-[0.12em]">Modern stack rack</span>
+          </span>
+          <span className="text-[#E65A4F] font-semibold uppercase tracking-[0.14em]">
+            {isJackpot ? 'Triple match unlocked' : 'Aligned to the site grid'}
+          </span>
+        </div>
       </div>
     </div>
   );
@@ -374,7 +413,7 @@ const TechRoulette: React.FC<TechRouletteProps> = ({ angle, items }) => {
   const step = 360 / count;
 
   const normalized = ((angle % 360) + 360) % 360;
-  let rawIndex = Math.round(-normalized / step);
+  const rawIndex = Math.round(-normalized / step);
   const activeIndex = ((rawIndex % count) + count) % count;
 
   return (

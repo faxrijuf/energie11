@@ -49,8 +49,8 @@ export const en = {
   work: {
     title: 'Signature projects',
     subtitle: 'Tailored experiences that translate identity into confident digital products',
-    viewProject: 'View project',
-    allProjects: 'All projects',
+    viewProject: 'View element',
+    allProjects: 'All elements',
     filterAll: 'All'
   },
   capabilities: {

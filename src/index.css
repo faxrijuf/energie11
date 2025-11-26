@@ -93,9 +93,59 @@
   .btn-brand {
     @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-brand-red to-[#f08a6e] text-sand text-sm font-medium px-6 py-2.5 shadow-[0_16px_36px_rgba(198,40,40,0.45)] transition-all duration-200 hover:shadow-[0_22px_48px_rgba(198,40,40,0.55)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60;
   }
+
+  .jackpot-wave {
+    @apply absolute rounded-full bg-[#E65A4F]/18;
+    animation: jackpotWave 1.2s ease-out forwards;
+  }
+
+  .jackpot-wave--outer {
+    @apply h-96 w-96;
+    animation-duration: 1400ms;
+  }
+
+  .jackpot-wave--mid {
+    @apply h-72 w-72;
+    animation-duration: 1280ms;
+  }
+
+  .jackpot-wave--inner {
+    @apply h-56 w-56;
+    animation: jackpotGlow 1200ms ease-out forwards;
+  }
 }
 @layer utilities {
   .font-hero {
     font-family: "EurostileLTpro", system-ui, sans-serif;
+  }
+}
+
+@keyframes jackpotWave {
+  0% {
+    transform: scale(0.72);
+    opacity: 0.7;
+  }
+  55% {
+    transform: scale(1.05);
+    opacity: 0.38;
+  }
+  100% {
+    transform: scale(1.34);
+    opacity: 0;
+  }
+}
+
+@keyframes jackpotGlow {
+  0% {
+    transform: scale(0.88);
+    opacity: 0.48;
+  }
+  65% {
+    transform: scale(1.08);
+    opacity: 0.24;
+  }
+  100% {
+    transform: scale(1.22);
+    opacity: 0;
   }
 }
