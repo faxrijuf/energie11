@@ -86,10 +86,6 @@
   .container {
     @apply mx-auto px-4 sm:px-6 lg:px-8;
   }
-
-  .btn-brand {
-    @apply inline-flex items-center justify-center rounded-full bg-brand-red text-sand text-sm font-medium px-6 py-2.5 shadow-[0_14px_30px_rgba(198,40,40,0.45)] transition-all duration-200 hover:bg-brand-red-dark hover:shadow-[0_18px_42px_rgba(198,40,40,0.55)] active:bg-brand-red-deeper active:scale-95 disabled:cursor-not-allowed disabled:opacity-60;
-  }
 }
 @layer utilities {
   .font-hero {

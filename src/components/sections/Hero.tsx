@@ -22,7 +22,10 @@ export const Hero: React.FC = () => {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
-          <a href="#work" className="btn-brand">
+          <a
+            href="#work"
+            className="inline-flex items-center justify-center rounded-full bg-[#f04438] px-6 py-2.5 text-sm font-medium text-[#f6f1eb] shadow-sm transition hover:bg-[#d93a30]"
+          >
             View our work
           </a>
           <a
