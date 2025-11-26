@@ -3,7 +3,7 @@ import { az } from './az';
 import { en } from './en';
 import { ru } from './ru';
 
-type Language = 'az' | 'en' | 'ru';
+export type Language = 'az' | 'en' | 'ru';
 type Translations = typeof en;
 
 interface LanguageContextType {
