@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { LanguageProvider } from './i18n/LanguageContext';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';

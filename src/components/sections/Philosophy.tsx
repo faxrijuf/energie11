@@ -9,7 +9,7 @@ import { SectionContainer } from '../layout/SectionContainer';
 
 export const Philosophy: React.FC = () => {
   const { t } = useLanguage();
-  const { ref, active } = useSectionInView('philosophy');
+  const { ref, active } = useSectionInView();
 
   const principles = t('philosophy.principles');
 

@@ -9,7 +9,7 @@ import { SectionContainer } from '../layout/SectionContainer';
 
 export const Testimonials: React.FC = () => {
   const { t } = useLanguage();
-  const { ref, active } = useSectionInView('testimonials');
+  const { ref } = useSectionInView();
 
   const testimonials = t('testimonials.items');
 

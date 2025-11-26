@@ -9,7 +9,7 @@ import { SectionContainer } from '../layout/SectionContainer';
 
 export const Studio: React.FC = () => {
   const { t } = useLanguage();
-  const { ref, active } = useSectionInView('studio');
+  const { ref, active } = useSectionInView();
 
   const stats = t('studio.stats');
 
