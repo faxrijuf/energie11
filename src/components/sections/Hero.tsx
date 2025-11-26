@@ -42,17 +42,17 @@ export const Hero: React.FC = () => {
           </div>
 
           <div className="grid w-full gap-3 sm:grid-cols-3 sm:gap-4">
-            {[ 
+            {[
               { title: 'Dedicated team', description: 'Senior designers & engineers on every project.' },
               { title: 'Fast & polished', description: 'Responsive experiences tuned for performance.' },
               { title: 'Global mindset', description: 'Based in Baku, collaborating with brands worldwide.' }
             ].map(card => (
               <div
                 key={card.title}
-                className="rounded-2xl border border-white/60 bg-white/70 px-4 py-3 text-left shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
+                className="rounded-2xl border border-neutral-800/80 bg-gradient-to-br from-neutral-900 via-neutral-950 to-black px-4 py-3 text-left shadow-[0_18px_40px_rgba(0,0,0,0.35)]"
               >
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-500">{card.title}</p>
-                <p className="mt-1 text-[13px] leading-relaxed text-neutral-800">{card.description}</p>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80">{card.title}</p>
+                <p className="mt-1 text-[13px] leading-relaxed text-white/80">{card.description}</p>
               </div>
             ))}
           </div>
