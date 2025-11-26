@@ -16,9 +16,9 @@ export const en = {
       part2: 'that define brand identity'
     },
     subtitle:
-      'Énergie Studio is a modern web design studio founded in 2025 in Baku, Azerbaijan. We create clean, high-quality websites for brands that want a strong digital presence.',
-    ctaPrimary: 'Contact us',
-    ctaSecondary: 'View our work',
+      'Énergie Studio is a boutique team crafting distinctive, performance-first websites for brands that want to feel premium online.',
+    ctaPrimary: 'Book a project call',
+    ctaSecondary: 'View selected work',
     mockupAlt: 'Premium web design showcase',
     panel: {
       label: 'Premium Design',
@@ -26,15 +26,15 @@ export const en = {
     }
   },
   work: {
-    title: 'Design elements & components',
-    subtitle: 'Building blocks of exceptional digital experiences',
+    title: 'Signature projects',
+    subtitle: 'Tailored experiences that translate identity into digital clarity',
     viewProject: 'View element',
     allProjects: 'All elements',
     filterAll: 'All'
   },
   capabilities: {
-    title: 'Our capabilities',
-    subtitle: 'Full-cycle solutions from strategy to execution',
+    title: 'What we deliver',
+    subtitle: 'Strategy, design, and development brought together by one senior team',
     webDesign: {
       title: 'Web Design',
       description:
@@ -58,7 +58,7 @@ export const en = {
   },
   philosophy: {
     title: 'Our design philosophy',
-    subtitle: 'Commitment to excellence in every detail',
+    subtitle: 'Precision, intention, and motion built around your brand voice',
     principles: [
       {
         title: 'Minimalism',
@@ -84,7 +84,7 @@ export const en = {
   },
   process: {
     title: 'Our process',
-    subtitle: 'A systematic approach from concept to launch',
+    subtitle: 'Clear steps with consistent communication at every milestone',
     steps: [
       {
         title: 'Discovery',
@@ -120,13 +120,13 @@ export const en = {
   },
   technology: {
     title: 'Our technology stack',
-    subtitle: 'Premium tools for modern web development'
+    subtitle: 'Modern, reliable tools we trust for performance and scale'
   },
   studio: {
     title: 'About the studio',
-    subtitle: 'Founded in Baku, built with a global perspective',
+    subtitle: 'Founded in Baku, building with a global perspective',
     description:
-      'Énergie Studio was founded in 2025 in Baku, Azerbaijan with a mission to create modern, high-quality web designs. Our international team brings together different perspectives, design cultures, and technical expertise to build websites that look refined and perform reliably. We collaborate with clients in Azerbaijan and abroad, creating digital experiences that feel contemporary, clear, and aligned with each brand.',
+      'Énergie Studio was founded in 2025 in Baku, Azerbaijan to craft modern, high-quality web experiences. Our international team blends different perspectives, design cultures, and technical expertise to build websites that feel refined and operate seamlessly. We collaborate with clients in Azerbaijan and abroad, delivering digital experiences that are contemporary, clear, and unmistakably on-brand.',
     stats: [
       { value: '2025', label: 'Studio founded' },
       { value: 'International', label: 'Team background' },
@@ -136,7 +136,7 @@ export const en = {
   },
   testimonials: {
     title: 'Why teams enjoy working with us',
-    subtitle: 'What we focus on in every collaboration',
+    subtitle: 'How we run projects from the first call to launch',
     items: [
       {
         text: 'Clear communication from the first call to launch so you always know what is happening and why.',
