@@ -29,7 +29,7 @@ export const Process: React.FC = () => {
         />
 
         <div className="max-w-3xl mx-auto space-y-4">
-          {steps.map((step: any, index: number) => (
+          {steps.map((step, index) => (
             <motion.div
               key={index}
               variants={cardVariant}

@@ -52,7 +52,7 @@ export const Studio: React.FC = () => {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat: any, index: number) => (
+            {stats.map((stat, index) => (
               <motion.div
                 key={index}
                 variants={cardVariant}

@@ -30,7 +30,7 @@ export const Testimonials: React.FC = () => {
         />
 
         <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-6">
-          {testimonials.map((testimonial: any, index: number) => (
+          {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
               variants={cardVariant}

@@ -6,10 +6,19 @@ import { ru } from './ru';
 export type Language = 'az' | 'en' | 'ru';
 type Translations = typeof en;
 
+type PathValue<T, P extends string> =
+  P extends `${infer Key}.${infer Rest}`
+    ? Key extends keyof T
+      ? PathValue<T[Key], Rest>
+      : never
+    : P extends keyof T
+      ? T[P]
+      : never;
+
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => any;
+  t: <K extends string>(key: K) => PathValue<Translations, K>;
 }
 
 const translations: Record<Language, Translations> = {
@@ -23,15 +32,15 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
 
-  const t = (key: string): any => {
+  const t = <K extends string>(key: K): PathValue<Translations, K> => {
     const keys = key.split('.');
-    let value: any = translations[language];
+    let value: unknown = translations[language];
 
     for (const k of keys) {
-      value = value?.[k];
+      value = (value as Record<string, unknown>)?.[k];
     }
 
-    return value;
+    return value as PathValue<Translations, K>;
   };
 
   return (
@@ -41,6 +50,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {
