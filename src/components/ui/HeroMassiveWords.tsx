@@ -13,7 +13,7 @@ export function HeroMassiveWords() {
       <div className="absolute -right-10 bottom-0 h-52 w-52 rounded-full bg-gradient-to-t from-[#f6f1eb]/25 via-transparent to-transparent blur-3xl" />
 
       <motion.div
-        className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.2em] text-[#f6f1eb]/80"
+        className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.2em] text-[#f6f1eb]/80 font-hero"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -23,7 +23,7 @@ export function HeroMassiveWords() {
       </motion.div>
 
       <motion.h1
-        className="mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#f6f1eb] leading-[1.05]"
+        className="mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#f6f1eb] leading-[1.05] font-hero"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2 }}

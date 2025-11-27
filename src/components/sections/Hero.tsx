@@ -12,7 +12,7 @@ export const Hero: React.FC = () => {
   return (
     <section id="hero" className="bg-[#f6f1eb]">
       <SectionContainer className="flex flex-col items-start gap-6 pb-20 pt-24 text-left">
-        <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-600">
+        <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-600 font-hero">
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-900 text-[10px] text-white shadow-[0_12px_28px_rgba(0,0,0,0.18)]">
             es
           </span>
@@ -30,12 +30,12 @@ export const Hero: React.FC = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
-              <a href="#work" className="btn-brand">
+              <a href="#work" className="btn-brand font-hero">
                 {t('hero.ctaSecondary')}
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-900 underline-offset-6 hover:underline"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-900 underline-offset-6 hover:underline font-hero"
               >
                 {t('hero.ctaPrimary')}
                 <span aria-hidden className="text-base">→</span>

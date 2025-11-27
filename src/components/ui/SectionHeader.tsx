@@ -19,7 +19,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = React.memo(({
       </div>
     )}
     <div className="mt-3 flex items-center gap-3">
-      <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900">
+      <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 font-hero">
         {title}
       </h2>
       <span className="hidden sm:block h-[2px] flex-1 bg-gradient-to-r from-neutral-900 via-neutral-700/40 to-transparent" />
