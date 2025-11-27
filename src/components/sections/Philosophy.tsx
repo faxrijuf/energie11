@@ -44,7 +44,7 @@ export const Philosophy: React.FC = () => {
           </motion.div>
         </div>
         <div className="space-y-4">
-          {principles.map((item: any, index: number) => (
+          {principles.map((item, index) => (
             <motion.article
               key={index}
               variants={cardVariant}
