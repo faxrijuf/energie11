@@ -9,7 +9,6 @@ import { ParallaxChains } from './components/ui/ParallaxChains';
 const Capabilities = lazy(() => import('./components/sections/Capabilities').then(m => ({ default: m.Capabilities })));
 const Philosophy = lazy(() => import('./components/sections/Philosophy').then(m => ({ default: m.Philosophy })));
 const Process = lazy(() => import('./components/sections/Process').then(m => ({ default: m.Process })));
-const Technology = lazy(() => import('./components/sections/Technology').then(m => ({ default: m.Technology })));
 const Studio = lazy(() => import('./components/sections/Studio').then(m => ({ default: m.Studio })));
 const Testimonials = lazy(() => import('./components/sections/Testimonials').then(m => ({ default: m.Testimonials })));
 const Contact = lazy(() => import('./components/sections/Contact').then(m => ({ default: m.Contact })));
@@ -35,7 +34,6 @@ function App() {
               <Capabilities />
               <Philosophy />
               <Process />
-              <Technology />
               <Studio />
               <Testimonials />
               <Contact />
