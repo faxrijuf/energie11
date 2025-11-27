@@ -23,7 +23,7 @@ export function HeroMassiveWords() {
       </motion.div>
 
       <motion.h1
-        className="mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#f6f1eb] leading-[1.05] font-hero"
+        className="mt-4 sm:mt-5 md:mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#f6f1eb] leading-[1.05] font-hero"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2 }}
