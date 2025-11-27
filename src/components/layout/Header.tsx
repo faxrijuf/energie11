@@ -164,7 +164,7 @@ export const Header: React.FC = () => {
               <div className="flex-1" />
 
               <div className="flex items-center gap-2 md:gap-3">
-                <div className="flex items-center gap-1.5 md:gap-2">
+                <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1.5 md:static md:translate-x-0 md:gap-2">
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
