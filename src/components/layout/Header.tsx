@@ -109,9 +109,6 @@ export const Header: React.FC = () => {
           <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-3 md:px-8 lg:px-10">
             <div className="mt-2 md:mt-4 flex flex-col items-center justify-center cursor-pointer active:scale-95 transition-transform" onClick={() => scrollToSection('hero')}>
               <Logo className="h-7 md:h-12" />
-              <p className="mt-1 md:mt-1.5 text-[9px] md:text-[10px] font-medium tracking-[0.2em] uppercase text-neutral-500">
-                est. 2025 Baku, Azerbaijan
-              </p>
             </div>
 
             <div className="flex w-full items-center justify-between pt-2 pb-2 md:pt-5 md:pb-4 relative">
