@@ -12,12 +12,6 @@ export const Hero: React.FC = () => {
   return (
     <section id="hero" className="bg-[#f6f1eb]">
       <SectionContainer className="flex flex-col items-start gap-6 pb-20 pt-24 text-left">
-        <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-600 font-hero">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-900 text-[10px] text-white shadow-[0_12px_28px_rgba(0,0,0,0.18)]">
-            es
-          </span>
-          {t('hero.tagline')}
-        </p>
 
         <div className="w-full">
           <HeroMassiveWords />
