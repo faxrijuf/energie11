@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Énergie Studio social preview</title>
+  <desc id="desc">Wordmark for Énergie Studio with red script and black supporting text.</desc>
+  <rect width="1200" height="630" fill="#ffffff" />
+  <g transform="translate(120, 200)" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600">
+    <text x="0" y="0" font-size="180" fill="#c53030" letter-spacing="4">
+      é n e r g i e
+    </text>
+    <line x1="-10" y1="25" x2="730" y2="25" stroke="#111111" stroke-width="8" />
+    <g font-weight="500" font-size="140" fill="#111111" transform="translate(10, 210)">
+      <text>studio</text>
+    </g>
+  </g>
+</svg>
